@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>前视声呐市场调研报告 | 2026 V5.0 数据校正版（含瀚界/蓝衡扩展版）</title>
+<style>
+  :root {
+    --bg: #0a1929;
+    --bg-card: #0f2944;
+    --bg-table: #122f4a;
+    --border: #1e4976;
+    --text: #d1e3f0;
+    --text-dim: #7a9ab5;
+    --accent: #00a8e8;
+    --accent2: #0077b6;
+    --green: #2ecc71;
+    --orange: #e67e22;
+    --red: #e74c3c;
+    --yellow: #f1c40f;
+    --radius: 6px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft YaHei", "Segoe UI", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 32px 28px 80px; }
+  .report-header {
+    text-align: center;
+    padding: 48px 0 36px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 40px;
+  }
+  .report-header .tag {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+  .report-header h1 { font-size: 30px; color: #fff; letter-spacing: 1px; margin-bottom: 10px; }
+  .report-header .subtitle { color: var(--text-dim); font-size: 14px; margin-top: 8px; }
+  .report-header .meta {
+    margin-top: 20px; display: flex; justify-content: center; gap: 24px;
+    font-size: 13px; color: var(--text-dim); flex-wrap: wrap;
+  }
+  .report-header .meta span { display: flex; align-items: center; gap: 6px; }
+  .report-header .meta strong { color: var(--accent); }
+  .section { margin-bottom: 48px; }
+  .section-title { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+  .section-title .num {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff; width: 36px; height: 36px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700; flex-shrink: 0;
+  }
+  .section-title h2 { font-size: 22px; color: #fff; }
+  .section-title .en { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+  .subsection { margin-bottom: 32px; }
+  .subsection h3 {
+    font-size: 17px; color: var(--accent); margin-bottom: 14px;
+    padding-left: 14px; border-left: 3px solid var(--accent);
+  }
+  p { margin-bottom: 12px; }
+  .note { color: var(--text-dim); font-size: 13px; font-style: italic; }
+  .highlight { color: var(--accent); font-weight: 600; }
+  .warn { color: var(--orange); }
+  .est { color: var(--yellow); font-size: 12px; }
+  table {
+    width: 100%; border-collapse: collapse; margin: 16px 0;
+    font-size: 13px; background: var(--bg-table); border-radius: var(--radius); overflow: hidden;
+  }
+  thead { background: var(--bg-card); }
+  th {
+    padding: 10px 12px; text-align: left; color: #fff; font-weight: 600;
+    border-bottom: 2px solid var(--border); white-space: nowrap;
+  }
+  td { padding: 9px 12px; border-bottom: 1px solid rgba(30,73,118,0.5); vertical-align: top; }
+  tbody tr:hover { background: rgba(0,168,232,0.06); }
+  .spec-label { color: var(--text-dim); white-space: nowrap; }
+  .spec-val { color: var(--text); font-weight: 500; }
+  .card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px 24px; margin-bottom: 20px;
+  }
+  .card-title {
+    font-size: 16px; color: #fff; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+  .badge-import { background: rgba(0,168,232,0.2); color: var(--accent); border: 1px solid var(--accent); }
+  .badge-domestic { background: rgba(46,204,113,0.15); color: var(--green); border: 1px solid var(--green); }
+  .badge-rank { background: rgba(241,196,15,0.15); color: var(--yellow); border: 1px solid var(--yellow); }
+  .badge-rev { background: rgba(230,126,34,0.15); color: var(--orange); border: 1px solid var(--orange); }
+  .info-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px; margin: 14px 0;
+  }
+  .info-item { background: var(--bg-table); border-radius: 4px; padding: 10px 14px; }
+  .info-item .label { font-size: 12px; color: var(--text-dim); margin-bottom: 4px; }
+  .info-item .value { font-size: 14px; color: #fff; font-weight: 500; }
+  .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .swot-box { border-radius: var(--radius); padding: 18px 20px; border: 1px solid; }
+  .swot-s { background: rgba(46,204,113,0.08); border-color: rgba(46,204,113,0.3); }
+  .swot-w { background: rgba(231,76,60,0.08); border-color: rgba(231,76,60,0.3); }
+  .swot-o { background: rgba(0,168,232,0.08); border-color: rgba(0,168,232,0.3); }
+  .swot-t { background: rgba(230,126,34,0.08); border-color: rgba(230,126,34,0.3); }
+  .swot-box h4 { font-size: 14px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .swot-box ul { list-style: none; padding-left: 0; }
+  .swot-box li { font-size: 13px; padding: 4px 0 4px 16px; position: relative; line-height: 1.6; }
+  .swot-box li::before { content: "▸"; position: absolute; left: 0; font-size: 10px; }
+  .swot-s li::before { color: var(--green); }
+  .swot-w li::before { color: var(--red); }
+  .swot-o li::before { color: var(--accent); }
+  .swot-t li::before { color: var(--orange); }
+  .strategy-box {
+    background: linear-gradient(135deg, rgba(0,119,182,0.12), rgba(0,168,232,0.06));
+    border: 1px solid var(--accent2); border-radius: var(--radius);
+    padding: 24px 28px; margin: 20px 0;
+  }
+  .strategy-box .verdict {
+    font-size: 20px; color: #fff; font-weight: 700; margin-bottom: 14px;
+    padding-bottom: 12px; border-bottom: 1px solid rgba(0,168,232,0.2);
+  }
+  .selling-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 16px 0; }
+  .sp-card {
+    background: var(--bg-table); border: 1px solid var(--border);
+    border-radius: 6px; padding: 16px; text-align: center;
+  }
+  .sp-card .sp-num {
+    width: 28px; height: 28px; border-radius: 50%; background: var(--accent);
+    color: #fff; display: inline-flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; margin-bottom: 8px;
+  }
+  .sp-card .sp-title { font-size: 15px; color: #fff; font-weight: 600; margin-bottom: 6px; }
+  .sp-card .sp-desc { font-size: 12px; color: var(--text-dim); line-height: 1.5; }
+  .divider { height: 1px; background: var(--border); margin: 36px 0; }
+  .report-footer {
+    text-align: center; padding: 28px 0; border-top: 1px solid var(--border);
+    margin-top: 48px; color: var(--text-dim); font-size: 12px;
+  }
+  .rev-banner {
+    background: rgba(230,126,34,0.1); border: 1px solid var(--orange);
+    border-radius: var(--radius); padding: 14px 20px; margin-bottom: 32px;
+    font-size: 13px; color: var(--text);
+  }
+  .rev-banner strong { color: var(--orange); }
+  @media (max-width: 768px) {
+    .container { padding: 16px; }
+    .report-header h1 { font-size: 22px; }
+    .swot-grid, .selling-points { grid-template-columns: 1fr; }
+    .info-grid { grid-template-columns: 1fr; }
+    table { font-size: 12px; }
+    th, td { padding: 6px 8px; }
+  }
+
+  /* A4 Print Styles */
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+  @media print {
+    body {
+      background: #fff !important;
+      color: #1a1a1a !important;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 100% !important;
+      padding: 0 !important;
+    }
+    .report-header {
+      padding: 20px 0 16px !important;
+      border-bottom: 2px solid #0066aa !important;
+      margin-bottom: 20px !important;
+      page-break-after: always;
+    }
+    .report-header h1 {
+      font-size: 20px !important;
+      color: #003366 !important;
+    }
+    .report-header .tag {
+      background: #0066aa !important;
+      color: #fff !important;
+      font-size: 13px !important;
+    }
+    .report-header .subtitle,
+    .report-header .meta {
+      color: #555 !important;
+    }
+    .report-header .meta strong {
+      color: #0066aa !important;
+    }
+    .rev-banner {
+      background: #fff3e0 !important;
+      border: 1px solid #e67e22 !important;
+      color: #333 !important;
+      page-break-inside: avoid;
+    }
+    .rev-banner strong { color: #e67e22 !important; }
+    .section {
+      page-break-inside: avoid;
+      page-break-after: always;
+      margin-bottom: 16px !important;
+    }
+    .section-title { page-break-after: avoid; }
+    .section-title .num {
+      background: #0066aa !important;
+      color: #fff !important;
+    }
+    .section-title h2 {
+      color: #003366 !important;
+      font-size: 16px !important;
+    }
+    .section-title .en { color: #666 !important; }
+    .subsection { page-break-inside: avoid; }
+    .subsection h3 {
+      color: #0066aa !important;
+      border-left: 3px solid #0066aa !important;
+      font-size: 14px !important;
+    }
+    .card {
+      background: #f8fafc !important;
+      border: 1px solid #ccc !important;
+      page-break-inside: avoid;
+    }
+    .card-title {
+      color: #003366 !important;
+      font-size: 14px !important;
+    }
+    table {
+      background: #fff !important;
+      border: 1px solid #ccc !important;
+      page-break-inside: avoid;
+      font-size: 10px !important;
+    }
+    thead { background: #e8f0f8 !important; }
+    th {
+      color: #003366 !important;
+      border-bottom: 2px solid #0066aa !important;
+    }
+    td {
+      border-bottom: 1px solid #ddd !important;
+      color: #222 !important;
+    }
+    .spec-label { color: #666 !important; }
+    .spec-val { color: #003366 !important; }
+    .badge-import {
+      background: #e3f2fd !important;
+      color: #0066aa !important;
+      border: 1px solid #0066aa !important;
+    }
+    .badge-domestic {
+      background: #e8f5e9 !important;
+      color: #2e7d32 !important;
+      border: 1px solid #2e7d32 !important;
+    }
+    .badge-rank {
+      background: #fff9c4 !important;
+      color: #f57f17 !important;
+      border: 1px solid #f57f17 !important;
+    }
+    .badge-rev {
+      background: #fff3e0 !important;
+      color: #e65100 !important;
+      border: 1px solid #e65100 !important;
+    }
+    .info-item {
+      background: #f5f5f5 !important;
+    }
+    .info-item .label { color: #666 !important; }
+    .info-item .value { color: #003366 !important; }
+    .swot-s { background: #e8f5e9 !important; border-color: #4caf50 !important; }
+    .swot-w { background: #ffebee !important; border-color: #ef5350 !important; }
+    .swot-o { background: #e3f2fd !important; border-color: #2196f3 !important; }
+    .swot-t { background: #fff3e0 !important; border-color: #ff9800 !important; }
+    .swot-box h4 { color: #003366 !important; }
+    .swot-box li { color: #333 !important; }
+    .swot-s li::before { color: #4caf50 !important; }
+    .swot-w li::before { color: #ef5350 !important; }
+    .swot-o li::before { color: #2196f3 !important; }
+    .swot-t li::before { color: #ff9800 !important; }
+    .strategy-box {
+      background: #e3f2fd !important;
+      border: 1px solid #0066aa !important;
+    }
+    .strategy-box .verdict { color: #003366 !important; }
+    .sp-card {
+      background: #f5f5f5 !important;
+      border: 1px solid #ccc !important;
+    }
+    .sp-card .sp-num { background: #0066aa !important; }
+    .sp-card .sp-title { color: #003366 !important; }
+    .sp-card .sp-desc { color: #666 !important; }
+    .divider { background: #ccc !important; }
+    .report-footer {
+      border-top: 1px solid #ccc !important;
+      color: #999 !important;
+      page-break-before: avoid;
+    }
+    .highlight { color: #0066aa !important; }
+    .warn { color: #e65100 !important; }
+    .est { color: #e65100 !important; }
+    p { color: #333 !important; }
+    .note { color: #666 !important; }
+    strong { color: #003366 !important; }
+    a { color: #0066aa !important; text-decoration: none !important; }
+    /* Wide tables: allow horizontal fit */
+    table { table-layout: auto; }
+    th, td { white-space: normal !important; word-break: break-all; }
+    /* Prevent orphan headings */
+    h2, h3, h4 { page-break-after: avoid; }
+    /* Comparison matrix: fit single A4 page */
+    .comparison-matrix {
+      table-layout: fixed !important;
+      width: 100% !important;
+      font-size: 7px !important;
+      page-break-inside: avoid !important;
+    }
+    .comparison-matrix th {
+      padding: 2px 3px !important;
+      font-size: 7px !important;
+      white-space: normal !important;
+      word-break: break-all;
+      line-height: 1.3 !important;
+    }
+    .comparison-matrix td {
+      padding: 2px 3px !important;
+      font-size: 7px !important;
+      white-space: normal !important;
+      word-break: break-all;
+      line-height: 1.3 !important;
+    }
+    .comparison-matrix .spec-label {
+      font-size: 7px !important;
+    }
+    /* Section containing comparison matrix: keep on one page */
+    .section:has(.comparison-matrix) {
+      page-break-inside: avoid !important;
+      page-break-after: auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="report-header" style="width: 736.667px; height: 210.656px;">
+    <span class="tag" style="font-size: 17px">市场战略分析报告</span>
+    <h1>前视声呐市场调研报告 | 2026 V2.0&nbsp;</h1>
+    
+    <div class="meta">
+      <span>报告周期：<strong>2026年度</strong></span>
+      <span>版本：<strong>V2.0</strong></span>
+      <span>数据截止：<strong>2026年Q2</strong></span>
+      <span>编制：市场策划部</span>
+    </div>
+  </div>
+
+  <!-- 版本说明 -->
+  
+
+  <!-- 摘要 -->
+  <div class="card" style="border-left: 4px solid var(--accent);">
+    <div class="card-title">报告摘要</div>
+    <p>&nbsp;本报告不直接采用单一第三方市场规模作为国内2D多波束前视成像声呐市场规模，而采用"产品价格×潜在装机量×应用场景"的思路进行国内可服务市场（SAM）定性分析。市场呈<strong>"进口品牌主导高端深水+国产品牌渗透浅水中端"</strong>的双轨格局。全球前五大厂商（Teledyne Marine、Kongsberg、Sonardyne、Furuno、Raymarine）合计占约54%全球份额。国内市场目前缺少公开、连续、可验证的2D多波束前视成像声呐细分市场份额统计，因此本报告不对单一厂商进行市场份额定量排名，而采用产品覆盖能力、商业化程度、工程案例、技术参数、价格和生态能力进行竞争力评价。</p>
+    <p>本报告聚焦<strong>2D多波束前视成像声呐</strong>品类（探测距离≥100m、水平开角≥120°的远距离避障导航声呐），深度解析进口代表性竞品TOP3与国产代表性竞品TOP5（按行业知名度与商业化成熟度选取，非市场份额定量排名），从供应商/制造商视角客观呈现市场竞争格局、技术参数差异、客户需求特征及市场进入机会。所有竞品均为当前市场可实际采购的商用产品。</p>
+    <p></p>
+
+    <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border);">
+      <div style="font-size: 13px; color: var(--text-dim); margin-bottom: 10px;"><strong style="color: #fff;">国产替代进度条（按耐压等级）：</strong></div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; text-align: center; font-size: 12px;">
+        <div>
+          <div style="font-size: 18px; font-weight: 700; color: var(--green);">高</div>
+          <div style="color: var(--text-dim);">≤500m浅水</div>
+          <div style="color: var(--green); font-size: 11px;">国产已成主流</div>
+        </div>
+        <div>
+          <div style="font-size: 18px; font-weight: 700; color: var(--yellow);">中</div>
+          <div style="color: var(--text-dim);">500–1500m</div>
+          <div style="color: var(--yellow); font-size: 11px;">国产快速追赶</div>
+        </div>
+        <div>
+          <div style="font-size: 18px; font-weight: 700; color: var(--orange);">低</div>
+          <div style="color: var(--text-dim);">1500–3000m</div>
+          <div style="color: var(--orange); font-size: 11px;">进口仍主导</div>
+        </div>
+        <div>
+          <div style="font-size: 18px; font-weight: 700; color: var(--red);">极低</div>
+          <div style="color: var(--text-dim);">≥3000m深海</div>
+          <div style="color: var(--red); font-size: 11px;">进口主导</div>
+        </div>
+      </div>
+      <p style="margin-top: 12px; font-size: 12px; color: var(--text-dim);">补充说明：300–500m档位国产产品密度进一步强化——瀚界C750D（500m）和蓝衡SV1203（300m/500m）的加入，使该浅水主流档位国产可选型号增至5款以上，国产替代进度持续加速。</p>
+    </div>
+  </div>
+
+  
+
+  <!-- ========== 第一部分：调研背景与目标界定 ========== -->
+  <div class="section" style="width: 1046px; height: 934.938px; transform: matrix(1, 0, 0, 1, 0, 44.6667);">
+    <div class="section-title" style="width: 1046px; height: 51.8542px; transform: matrix(1, 0, 0, 1, 0, 11.3438);">
+      <div class="num">1</div>
+      <div>
+        <h2>调研背景与目标界定</h2>
+        <div class="en">Research Background &amp; Objective Definition</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>1.1 市场背景</h3>
+      <p>公开第三方机构对全球FLS市场规模的测算存在较大差异，且不同机构对FLS定义范围不同（部分含侧扫、单波束、军用声呐）。本报告不直接采用单一第三方市场规模作为国内2D多波束前视成像声呐市场规模，而采用"产品价格×潜在装机量×应用场景"的思路进行国内可服务市场（SAM）定性分析。驱动因素包括：全球海洋经济规模扩张、水下机器人（ROV/AUV）装机量持续增长、港口安防与反水下入侵需求上升、深海科考与深海矿产开发投入加大。</p>
+      <p>中国市场呈现显著的双轨格局：<strong>进口品牌</strong>在高端深水市场（≥1500m）占据绝对主导地位，以Teledyne Marine、Tritech、Blueprint Subsea为代表，凭借成熟算法、全球服务网络和工程验证案例构建壁垒；<strong>国产品牌</strong>在浅水市场（≤300m）快速渗透，以海底鹰、博海深衡、海卓同创为代表，通过价格优势（约为进口同级40%–65%）、短交付周期（2–4周 vs 进口3–6个月）和本地化定制服务获取份额。</p>
+      <p>全球前五大厂商（Teledyne Marine、Kongsberg、Sonardyne、Furuno、Raymarine）合计占约54%全球份额。国内市场目前缺少公开、连续、可验证的2D多波束前视成像声呐细分市场份额统计，因此本报告不对单一厂商进行市场份额定量排名，而采用产品覆盖能力、商业化程度、工程案例、技术参数、价格和生态能力进行竞争力评价。民用商用前视声呐领域，进口品牌仍占据技术高地，但国产替代政策与出口管制正在重塑竞争格局。</p>
+    </div>
+
+    <div class="subsection">
+      <h3>1.2 调研目标</h3>
+      <p>本次调研围绕以下三个核心目标展开：</p>
+      <ul style="margin-left: 20px; font-size: 14px; line-height: 1.8;">
+        <li><strong>明确产线方向</strong>：基于市场规模、竞争格局和技术门槛，判断前视声呐产线应优先切入的耐压等级、频率段和目标性能指标。</li>
+        <li><strong>识别竞争格局</strong>：对比进口代表性竞品与国产代表性竞品在核心参数、价格、交付周期、SDK生态、售后服务等维度的差距与优势，识别市场空白点。</li>
+        <li><strong>锁定目标客户</strong>：分析六大应用场景的客户结构、决策因素和价格敏感度，为市场推广提供客户优先级排序依据。</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <h3>1.3 调研范围界定</h3>
+      <p>本报告严格限定研究对象为<strong>水下ROV/AUV/载人潜器搭载式2D多波束前视成像声呐</strong>（Forward-Looking Sonar, FLS），核心筛选条件：探测距离≥100m、水平开角≥120°、用于远距离避障导航。明确排除以下品类：</p>
+      <ul style="margin-left: 20px; font-size: 14px; line-height: 1.8;">
+        <li>侧扫声呐（Side Scan Sonar）：成像原理与应用场景不同，主要用于海底地貌测绘</li>
+        <li>单波束测深仪（Single-beam Echosounder）：仅提供单点深度信息，无成像能力</li>
+        <li>多波束测深系统（MBES）：用于海底地形三维测绘，非前视避障</li>
+        <li>近距离识别声呐（如ARIS系列，探测距离≤15m）：属于近场高分辨识别设备，与远距离避障导航声呐定位不同</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <h3>1.4 数据来源说明</h3>
+      <p>数据来源于六大渠道交叉验证：①品牌官方技术文档/数据手册（6份）；②行业研究机构报告（Dataintelo、PW Consulting、前瞻产业研究院）；③上市公司年报及招股说明书；④B2B电商平台公开报价（1688、仪器网）；⑤行业媒体与展会公开信息；⑥水下机器人集成商一线反馈。覆盖军工、海工、水利、科研院所四大领域。</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ========== 第二部分：进口代表性竞品 TOP3 深度解析 ========== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="num">2</div>
+      <div>
+        <h2>进口代表性竞品 TOP3 深度解析</h2>
+        <div class="en">按行业知名度与商业化成熟度选取，非市场份额定量排名</div>
+      </div>
+    </div>
+
+    <!-- #1 Teledyne BlueView M900 D Mk2 -->
+    <div class="subsection">
+      <h3 style="width: 1144px; height: 61.2396px; transform: matrix(1, 0, 0, 1, 0, -13.3334);">竞品一 ｜ Teledyne Marine — BlueView M900 D Mk2（深海版）<br>定位：深水/高端标杆</h3>
+      <div class="card" style="width: 1144px; height: 1051.24px; transform: matrix(1, 0, 0, 1, 0, -14.6666);">
+        <div class="card-title">
+          <span class="badge badge-import">进口</span>
+          Teledyne BlueView M900 D&nbsp;</div>
+        <p>Teledyne Marine旗下BlueView系列是全球装机量最大的2D多波束前视成像声呐产品线，广泛部署于ROV/AUV避障、港口安防、海底管线巡检等场景。M900 D Mk2为900kHz单频深海版（6000m耐压），是Teledyne的旗舰深水前视声呐型号；另有M900/2250双频系列（900/2250kHz）提供更广的垂直覆盖，但型号定位与M900单频系列不同，请勿混淆 [$TRAE_REF](https://www.teledynemarine.com/products/product-line/sonar/forward-looking-imaging-sonars)。</p>
+
+        <table>
+          <thead><tr><th colspan="2">核心指标</th></tr></thead>
+          <tbody>
+            <tr><td class="spec-label">工作频率</td><td class="spec-val">900 kHz（M900 D Mk2 单频）<br>900 / 2250 kHz（M900/2250 双频系列，另型号）</td></tr>
+            <tr><td class="spec-label">最大探测距离</td><td class="spec-val">100m（有效约60m）</td></tr>
+            <tr><td class="spec-label">最大耐压深度</td><td class="spec-val"><strong>6000m</strong>（深海版D型）/ 1000m（标准S型）</td></tr>
+            <tr><td class="spec-label">水平波束开角</td><td class="spec-val">130°</td></tr>
+            <tr><td class="spec-label">垂直波束开角</td><td class="spec-val">12°（M900 D Mk2 单频900kHz）<br>12°（900kHz）/ 20°（2250kHz）（M900/2250 双频系列，另型号）</td></tr>
+            <tr><td class="spec-label">波束数量</td><td class="spec-val">768波束</td></tr>
+            <tr><td class="spec-label">角度分辨率</td><td class="spec-val">0.18°（波束间隔）</td></tr>
+            <tr><td class="spec-label">距离分辨率</td><td class="spec-val">1.3 cm</td></tr>
+            <tr><td class="spec-label">最大刷新率</td><td class="spec-val">25 Hz</td></tr>
+            <tr><td class="spec-label">功耗</td><td class="spec-val">≤20 W（DC 12V–48V）</td></tr>
+            <tr><td class="spec-label">重量（空气中/水中）</td><td class="spec-val">7.9 kg / 5.2 kg（深海版D型）<br>2.5 kg / 1.2 kg（标准版S型）</td></tr>
+            <tr><td class="spec-label">接口协议</td><td class="spec-val">Ethernet / VDSL</td></tr>
+            <tr><td class="spec-label">尺寸</td><td class="spec-val">259mm × Ø127mm（深海版D型）<br>192mm × Ø101.6mm（标准版S型）</td></tr>
+            <tr><td class="spec-label">SDK与软件</td><td class="spec-val">ProViewer®操作软件 + SDK（可访问原始数据文件与声呐控制接口）</td></tr>
+          </tbody>
+        </table>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="label">2026年中国市场终端价</div>
+            <div class="value">深海版D型（6000m）：¥250,000–¥400,000<span class="est">（市场估算区间，非官方公开价）</span><br><br></div>
+          </div>
+          <div class="info-item">
+            <div class="label">典型应用场景</div>
+            <div class="value">深海ROV/AUV避障导航<br>海底管线/脐带缆巡检<br>港口水下安防</div>
+          </div>
+          <div class="info-item">
+            <div class="label">典型客户画像</div>
+            <div class="value">中海油服深水作业队<br>中科院深海所<br>军方水下安防单位<br>ROV制造商（Saab Seaeye等）</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- #2 Tritech Gemini 720iks -->
+    <div class="subsection">
+      <h3>竞品二 ｜ Tritech International — Gemini 720iks<div>定位：浅水ROV/高性价比成熟产品</div></h3>
+      <div class="card">
+        <div class="card-title">
+          <span class="badge badge-import">进口</span>
+          Tritech Gemini 720iks
+        </div>
+        <p>Tritech（英国）Gemini系列是全球浅水ROV市场装机量最大的前视成像声呐之一，以紧凑轻量、低功耗著称。720iks为浅水经济型，沿袭720is的核心声学性能（720kHz / 512波束 / CHIRP处理），在小型ROV和潜水员手持平台上有极高渗透率 [$TRAE_REF](https://www.tritech.co.uk/files/Datasheets/Gemini720iks-datasheet-_0742-SOM-00001-10.pdf)。</p>
+
+        <table>
+          <thead><tr><th colspan="2">核心指标</th></tr></thead>
+          <tbody>
+            <tr><td class="spec-label">工作频率</td><td class="spec-val">720 kHz（CHIRP + CW双模式）</td></tr>
+            <tr><td class="spec-label">最大探测距离</td><td class="spec-val">120m</td></tr>
+            <tr><td class="spec-label">最大耐压深度</td><td class="spec-val"><strong>350m</strong>（浅水设计）</td></tr>
+            <tr><td class="spec-label">水平波束开角</td><td class="spec-val">120°</td></tr>
+            <tr><td class="spec-label">垂直波束开角</td><td class="spec-val">20°（向下倾斜10°）</td></tr>
+            <tr><td class="spec-label">波束数量</td><td class="spec-val">512波束</td></tr>
+            <tr><td class="spec-label">角度分辨率</td><td class="spec-val">1.0°声学 / <strong>0.25°有效</strong></td></tr>
+            <tr><td class="spec-label">距离分辨率</td><td class="spec-val">4 mm</td></tr>
+            <tr><td class="spec-label">最大刷新率</td><td class="spec-val">最高97Hz（1m量程；随量程增大而下降）</td></tr>
+            <tr><td class="spec-label">功耗</td><td class="spec-val">16 W – 27 W（距离相关）</td></tr>
+            <tr><td class="spec-label">重量（空气中/水中）</td><td class="spec-val">1.40 kg / 0.43 kg</td></tr>
+            <tr><td class="spec-label">接口协议</td><td class="spec-val">Ethernet（主口）；RS232/TTL（辅助口）</td></tr>
+            <tr><td class="spec-label">SDK与软件</td><td class="spec-val">Genesis数据采集与记录软件 + Genesis SDK + GeminiComms接口（可申请获取，支持Windows/Linux）</td></tr>
+            <tr><td class="spec-label">集成声速传感器</td><td class="spec-val">内置VoS传感器</td></tr>
+          </tbody>
+        </table>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="label">2026年中国市场终端价</div>
+            <div class="value">¥120,000–¥200,000<br></div>
+          </div>
+          <div class="info-item">
+            <div class="label">典型应用场景</div>
+            <div class="value">浅水ROV导航避障<br>潜水员手持成像<br>搜救打捞<br>大坝/闸门检测</div>
+          </div>
+          <div class="info-item">
+            <div class="label">典型客户画像</div>
+            <div class="value">中小型ROV制造商<br>各省市水利设计院<br>打捞局/救助局<br>水下工程公司</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- #3 Blueprint Subsea Oculus M750d -->
+    <div class="subsection">
+      <h3>竞品三 ｜ Blueprint Subsea — Oculus M750d<div>定位：双频、小型化、ROV/AUV</div></h3>
+      <div class="card">
+        <div class="card-title">
+          <span class="badge badge-import">进口</span>
+          
+          Blueprint Subsea Oculus M750d
+        </div>
+        <p>Blueprint Subsea（英国）的Oculus M系列是多波束前视成像声呐领域的新一代标杆产品，以极致紧凑和宽频段覆盖著称。M750d为双频通用型（750kHz/1.2MHz），兼顾远距离导航（120m）与近距离高分辨识别（40m），在中小型ROV/AUV市场与Tritech Gemini直接竞争 [$TRAE_REF](https://assets.ctfassets.net/kzewhs8e6cvu/4rLxKV7IcrM0Dj5kDh5UJu/ad85d03557b1c1bd8b78b083b9df0c6b/Oculus_M-Series_Datasheet_EN.pdf)。MT-Series（钛合金）可达1000m，MD-Series（钛合金）可达4000m耐压。</p>
+
+        <table>
+          <thead><tr><th colspan="2">核心指标</th></tr></thead>
+          <tbody>
+            <tr><td class="spec-label">工作频率</td><td class="spec-val">750 kHz / 1.2 MHz 双频</td></tr>
+            <tr><td class="spec-label">最大探测距离</td><td class="spec-val">120m（750kHz）/ 40m（1.2MHz）</td></tr>
+            <tr><td class="spec-label">最大耐压深度</td><td class="spec-val"><strong>500m</strong>（M-Series 标准铝合金版）/ 1000m（MT-Series 钛合金版）/ 4000m（MD-Series 深海系列）</td></tr>
+            <tr><td class="spec-label">水平波束开角</td><td class="spec-val">130°（750kHz）/ 70°（1.2MHz）</td></tr>
+            <tr><td class="spec-label">垂直波束开角</td><td class="spec-val">20°（750kHz）/ 12°（1.2MHz）</td></tr>
+            <tr><td class="spec-label">波束数量</td><td class="spec-val">512波束（最大）</td></tr>
+            <tr><td class="spec-label">角度分辨率</td><td class="spec-val">1.0° / 0.6°（波束间隔0.25°/0.16°）</td></tr>
+            <tr><td class="spec-label">距离分辨率</td><td class="spec-val">4 mm / 2.5 mm</td></tr>
+            <tr><td class="spec-label">最大刷新率</td><td class="spec-val">40 Hz</td></tr>
+            <tr><td class="spec-label">功耗</td><td class="spec-val">10 W – 35 W（型号与距离相关）</td></tr>
+            <tr><td class="spec-label">重量（空气中/水中）</td><td class="spec-val">980 g / 360 g</td></tr>
+            <tr><td class="spec-label">接口协议</td><td class="spec-val">4线百兆以太网（100-BaseT）/ 2线DSL扩展模块</td></tr>
+            <tr><td class="spec-label">供电</td><td class="spec-val">18V–32V 隔离DC（12V非隔离可选）</td></tr>
+            <tr><td class="spec-label">尺寸</td><td class="spec-val">125mm × 122mm × 62mm</td></tr>
+            <tr><td class="spec-label">壳体材质</td><td class="spec-val">阳极氧化铝（标准）/ 钛合金（深海版）</td></tr>
+            <tr><td class="spec-label">集成传感器</td><td class="spec-val">水压 + 温度（用于声速计算）</td></tr>
+          </tbody>
+        </table>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="label">2026年中国市场终端价</div>
+            <div class="value">¥85,000–¥130,000<br></div>
+          </div>
+          <div class="info-item">
+            <div class="label">典型应用场景</div>
+            <div class="value">ROV/AUV导航避障<br>水下结构物检测<br>管道/电缆巡检<br>近场目标识别</div>
+          </div>
+          <div class="info-item">
+            <div class="label">典型客户画像</div>
+            <div class="value">中小型ROV制造商<br>水下工程检测公司<br>海洋科考团队<br>海上风电运维单位</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ========== 第三部分：国产代表性竞品 TOP5 深度解析 ========== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="num">3</div>
+      <div>
+        <h2>国产代表性竞品 TOP5 深度解析</h2>
+        <div class="en">按行业知名度与商业化成熟度选取，非市场份额定量排名</div>
+      </div>
+    </div>
+
+    <!-- #1 海底鹰 FLS800D -->
+    <div class="subsection">
+      <h3>国产竞品一 ｜ 海底鹰深海科技 — FLS800D</h3>
+      <div class="card">
+        <div class="card-title">
+          <span class="badge badge-domestic">国产</span>
+          海底鹰 FLS800D 前视目标搜探声纳
+        </div>
+        <p>海底鹰深海科技股份有限公司（昆明）是目前国内商用前视成像声呐领域产品成熟度最高的企业之一。FLS800D于2025年10月发布第三代升级版，图像清晰度较同类提升30%，支持网络外触发抗干扰，已实现规模化出货 [$TRAE_REF](https://hdyocean-website.oss-cn-hangzhou.aliyuncs.com/pdfs/product/FLS800D.pdf)。双频设计（850kHz/1150kHz）直接对标Teledyne BlueView M900-2250双频系列，国产化率超过90%。</p>
+
+        <table>
+          <thead><tr><th colspan="2">核心指标</th></tr></thead>
+          <tbody>
+            <tr><td class="spec-label">工作频率</td><td class="spec-val">850 kHz / 1150 kHz 双频在线可调</td></tr>
+            <tr><td class="spec-label">最大探测距离</td><td class="spec-val">120m（850kHz）/ 40m（1150kHz）</td></tr>
+            <tr><td class="spec-label">最大耐压深度</td><td class="spec-val"><strong>400m / 600m / 1500m</strong>（铝合金/不锈钢/钛合金三档可选）</td></tr>
+            <tr><td class="spec-label">水平波束开角</td><td class="spec-val">130°（850kHz）/ 100°（1150kHz）</td></tr>
+            <tr><td class="spec-label">垂直波束开角</td><td class="spec-val">20°</td></tr>
+            <tr><td class="spec-label">波束数量</td><td class="spec-val">512波束</td></tr>
+            <tr><td class="spec-label">角度分辨率</td><td class="spec-val">0.25°（850kHz）/ 0.2°（1150kHz）</td></tr>
+            <tr><td class="spec-label">距离分辨率</td><td class="spec-val">2 mm</td></tr>
+            <tr><td class="spec-label">最大刷新率</td><td class="spec-val">40 Hz</td></tr>
+            <tr><td class="spec-label">功耗</td><td class="spec-val">≤48 W（DC 24V–36V）</td></tr>
+            <tr><td class="spec-label">重量（空气中/水中）</td><td class="spec-val">≤1.3 kg / 0.41 kg</td></tr>
+            <tr><td class="spec-label">接口协议</td><td class="spec-val">百兆以太网</td></tr>
+            <tr><td class="spec-label">尺寸</td><td class="spec-val">125mm × 118mm × 80mm</td></tr>
+            <tr><td class="spec-label">安装方式</td><td class="spec-val">底部4颗M4螺栓 + 尾部2颗M4螺栓</td></tr>
+            <tr><td class="spec-label">国产化程度</td><td class="spec-val">国产化程度较高（自研DSP信号处理算法、图像增强算法、抗干扰算法；换能器自主制造；具体国产化率需厂家提供BOM/国产化率证明）</td></tr>
+          </tbody>
+        </table>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="label">2026年中国市场终端价</div>
+            <div class="value">¥150,000<br><span class="est">*约为进口同级产品40%–55%</span></div>
+          </div>
+          <div class="info-item">
+            <div class="label">典型应用场景</div>
+            <div class="value">ROV/AUV避碰导航<br>水下目标搜探<br>海底电缆施工监控<br>港口安防<br>管道巡查</div>
+          </div>
+          <div class="info-item">
+            <div class="label">典型客户画像</div>
+            <div class="value">水下机器人创业公司<br>海洋工程服务公司<br>海上风电运维单位<br>安防系统集成商</div>
+          </div>
+        </div>
+
+        <div class="card" style="background: rgba(46,204,113,0.06); border: 1px solid rgba(46,204,113,0.2); margin-top: 16px;">
+          <div class="card-title" style="color: var(--green);">与进口产品差距分析</div>
+          <ul style="margin-left: 20px; font-size: 13px; line-height: 1.7;">
+            <li>耐压深度已覆盖至1500m（钛合金档），但6000m深海档位尚无商用产品</li>
+            <li>2mm距离分辨率行业领先，优于Teledyne M900 D的1.3cm</li>
+            <li>公开SDK/API、ROS驱动和跨平台开发资料的透明度有待提升，对科研集成客户的集成便利性受限</li>
+            <li>售后维修周转时间（TAT）和备件库存机制未公开标准化承诺</li>
+            <li>品牌影响力在国际市场（尤其是大型油气公司和国际科考项目）仍处弱势</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- #2 博海深衡 BHQ-750d -->
+    <div class="subsection">
+      <h3>国产竞品二 ｜ 宁波博海深衡 — BHQ-750d&nbsp;</h3>
+      <div class="card" style="width: 1144px; height: 1273.59px;">
+        <div class="card-title">
+          <span class="badge badge-domestic">国产</span>
+          博海深衡 BHQ-750d&nbsp;</div>
+        <p>宁波博海深衡科技核心团队来自科研院所，获北极光创投、中科院创投等机构投资 (https://www.deep-balance.com/Aboutus.aspx?ClassID=3)。BHQ-750d（750kHz/1.2MHz双频）对标Tritech Gemini 720is，在探测距离和角度覆盖上达到同等水平；BHQ-TS深海系列实现4000m耐压，是国产前视声呐向深水突破的代表 https://www.deep-balance.com/default.aspx)。</p>
+        <p></p>
+
+        <table>
+          <thead><tr><th>核心指标</th><th>BHQ-750d</th><th><br></th></tr></thead>
+          <tbody>
+            <tr><td class="spec-label">工作频率</td><td>750kHz / 1.2MHz</td><td></td></tr>
+            <tr><td class="spec-label">最大探测距离</td><td>120m / 40m</td><td><br></td></tr>
+            <tr><td class="spec-label">最大耐压深度</td><td>300m（可定制500m）</td><td><br></td></tr>
+            <tr><td class="spec-label">水平开角</td><td>130° / 130°</td><td><br></td></tr>
+            <tr><td class="spec-label">垂直开角</td><td>20° / 20°</td><td><br></td></tr>
+            <tr><td class="spec-label">波束数量</td><td>512</td><td><br></td></tr>
+            <tr><td class="spec-label">距离分辨率</td><td>4mm / 2.5mm</td><td></td></tr>
+            <tr><td class="spec-label">角度分辨率</td><td>0.25° / 0.16°</td><td><br></td></tr>
+            <tr><td class="spec-label">刷新率</td><td>40 Hz</td><td><br></td></tr>
+            <tr><td class="spec-label">功耗</td><td>10W – 35W</td><td><br></td></tr>
+            <tr><td class="spec-label">重量（空气/水）</td><td>980g / 360g</td><td><br></td></tr>
+            <tr><td class="spec-label">接口</td><td>4线百兆以太网</td><td></td></tr>
+            <tr><td class="spec-label">尺寸</td><td>125×122×62mm</td><td><br></td></tr>
+            <tr><td class="spec-label">供电</td><td>18—32V 隔离 DC</td><td><br></td></tr>
+            <tr><td class="spec-label">国产化程度</td><td colspan="2">国产化程度较高（柔性可配置声呐架构、磁致伸缩阵子探头、高分辨成像算法自主；部分高速ADC/DAC芯片仍依赖进口；具体国产化率需厂家提供BOM/国产化率证明）</td></tr>
+          </tbody>
+        </table>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="label">2026年中国市场终端价</div>
+            <div class="value">公开FOB报价约US$28,000–50,000<div>人民币25–30万元/套</div></div>
+          </div>
+          <div class="info-item">
+            <div class="label">典型应用场景</div>
+            <div class="value">水库/大坝水下检测<br>浅水环保监测<br>深海探测（BHQ-TS）<br>水下安防缉私<br>鱼群活动监测</div>
+          </div>
+          <div class="info-item">
+            <div class="label">典型客户画像</div>
+            <div class="value">各省市水利设计院<br>水库管理单位<br>水下机器人公司<br>海警/缉私部门</div>
+          </div>
+        </div>
+
+        <div class="card" style="background: rgba(46, 204, 113, 0.06); border: 1px solid rgba(46, 204, 113, 0.2); margin-top: 16px; width: 1094.67px; height: 159.833px; transform: matrix(1, 0, 0, 1, 0, 10.6666);">
+          <div class="card-title" style="color: var(--green);">与进口产品差距分析</div>
+          <ul style="margin-left: 20px; font-size: 13px; line-height: 1.7;">
+            <li>BHQ-750d在外形尺寸、重量及主要声学指标方面与Blueprint Oculus M750d高度接近，说明两者面向相近的小型ROV/AUV应用市场。</li>
+            <li>BHQ-TS深海系列标称4000m耐压，但缺乏公开工程验证案例，市场接受度待观察</li>
+            <li>安装接口、SDK文档、售后体系未公开透明，集成商导入存在隐性风险</li>
+            <li>部分高速ADC/DAC芯片仍依赖进口，极端环境下供应链存在不确定性</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- #3 海卓同创 IS720M/IS1200M -->
+    <div class="subsection">
+      <h3>国产竞品三 ｜ 北京海卓同创 — IS720M 图像声呐</h3>
+      <div class="card">
+        <div class="card-title">
+          <span class="badge badge-domestic">国产</span>
+          海卓同创 IS720M
+        </div>
+        <p>北京海卓同创科技有限公司是一家专业从事多波束测深、侧扫声呐、图像声呐研发与销售的高科技企业，拥有全系列声呐产品线，在多波束测深领域已实现对进口高端设备的国产化替代 [$TRAE_REF](https://www.hydro-tech.cn/)。其图像声呐产品线（IS系列）定位ROV/AUV导航避障与水下成像，产品已商用可采购 [$TRAE_REF](http://hydro-tech.cn/h-col-245.html)。</p>
+
+        <table>
+          <thead><tr><th colspan="2">核心指标</th></tr></thead>
+          <tbody>
+            <tr><td class="spec-label">工作频率</td><td class="spec-val">720kHz（IS720M单频）/ 720kHz + 1.2MHz（双频）</td></tr>
+            <tr><td class="spec-label">最大探测距离</td><td class="spec-val"><span class="est">120m（720kHz）/ 40m（1.2MHz）</span></td></tr>
+            <tr><td class="spec-label">最大耐压深度</td><td class="spec-val">350m<span class="est"></span></td></tr>
+            <tr><td class="spec-label">水平波束开角</td><td class="spec-val">130°</td></tr>
+            <tr><td class="spec-label">波束数量</td><td class="spec-val">512波束</td></tr>
+            <tr><td class="spec-label">角度分辨率</td><td class="spec-val"><strong>0.4°</strong>（水平接收波束角，业内领先指标）</td></tr>
+            <tr><td class="spec-label">距离分辨率</td><td class="spec-val">2.5 mm<span class="est"></span></td></tr>
+            <tr><td class="spec-label">功耗</td><td class="spec-val">&lt;50 W</td></tr>
+            <tr><td class="spec-label">重量</td><td class="spec-val">IS720M单频：1.4 kg<br>IS720M/IS1200M双频：3.4 kg</td></tr>
+            <tr><td class="spec-label">尺寸</td><td class="spec-val">IS720M单频：155×125×62mm<br>IS720M/IS1200M双频：247×116×94mm</td></tr>
+            <tr><td class="spec-label">接口协议</td><td class="spec-val">百兆网</td></tr>
+            <tr><td class="spec-label">定制开发</td><td class="spec-val">支持——结合信号处理和目标识别算法积累，提供特殊应用定制化软硬件方案</td></tr>
+            <tr><td class="spec-label">国产化程度</td><td class="spec-val">国产化程度较高（自研信号处理算法、目标识别算法；多波束测深系统已实现进口替代，图像声呐为新产品线；具体国产化率需厂家提供BOM/国产化率证明）</td></tr>
+          </tbody>
+        </table>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="label">2026年中国市场终端价</div>
+            <div class="value"><span class="est">*推测¥80,000–¥150,000<br></span></div>
+          </div>
+          <div class="info-item">
+            <div class="label">典型应用场景</div>
+            <div class="value">ROV/AUV避障导航<br>水下结构物检测<br>潜水员水下成像导航<br>水下目标探测与跟踪<br>被动声呐测向</div>
+          </div>
+          <div class="info-item">
+            <div class="label">典型客户画像</div>
+            <div class="value">水下机器人制造商<br>海洋测绘单位<br>水下工程检测公司<br>水下安防集成商</div>
+          </div>
+        </div>
+
+        <div class="card" style="background: rgba(46,204,113,0.06); border: 1px solid rgba(46,204,113,0.2); margin-top: 16px;">
+          <div class="card-title" style="color: var(--green);">与进口产品差距分析</div>
+          <ul style="margin-left: 20px; font-size: 13px; line-height: 1.7;">
+            <li>0.4°角度分辨率，定位工业级基础避障与多波束复合系统；在波束成形精度上与海底鹰（0.25°/0.2°）存在梯队差距，较Teledyne M900 D的0.18°差距更为显著</li>
+            <li>水中重量和安装方式未完全公开，ROV集成适配性待验证</li>
+            <li>公开SDK/ROS支持状态未明确，对需要深度定制的科研客户存在不确定性</li>
+            <li>图像声呐为新产品线，相较于多波束测深系统的成熟度，市场验证案例较少</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- #4 上海瀚界科技 C750D -->
+    <div class="subsection">
+      <h3>国产竞品四 ｜ 上海瀚界科技 — C750D</h3>
+      <div class="card">
+        <div class="card-title">
+          <span class="badge badge-domestic">国产</span>
+          瀚界科技 C750D 双频图像声呐
+        </div>
+        <p>上海瀚界科技发展有限公司，2014年成立，注册地上海青浦，国家高新技术企业、上海市"专精特新"企业。2024年牵头工信部"耐压低噪MEMS水声传感器"国家重点研发计划，2025年获黑龙江省科技进步奖一等奖。注册资本2000万元，控股股东上海呐敏科技有限公司。 [$TRAE_REF](https://hanjie-tech.cn/about-us)</p>
+        <p>C750D为双频图像声呐（750kHz/1.2MHz），是瀚界科技主打产品，官网标为"Most Popular"。另有C400H单频远距型号（400kHz/200m/1000m钛合金）、C900小型化型号（900kHz/80m/300m/14W）以及C750DH6深水版（6000m钛合金）。 [$TRAE_REF](https://hanjie-tech.cn/product/c750d)</p>
+
+        <table>
+          <thead><tr><th colspan="2">核心指标（C750D标准版）</th></tr></thead>
+          <tbody>
+            <tr><td class="spec-label">工作频率</td><td class="spec-val">750kHz / 1.2MHz（双频切换）</td></tr>
+            <tr><td class="spec-label">最大探测距离</td><td class="spec-val">120m（750kHz）/ 40m（1.2MHz）</td></tr>
+            <tr><td class="spec-label">最大耐压深度</td><td class="spec-val"><strong>500m</strong>（标准版）；6000m（C750DH6深海版）</td></tr>
+            <tr><td class="spec-label">水平开角</td><td class="spec-val">130°（750kHz）/ 80°（1.2MHz）</td></tr>
+            <tr><td class="spec-label">垂直开角</td><td class="spec-val">20°（750kHz）/ 12°（1.2MHz）</td></tr>
+            <tr><td class="spec-label">波束数量</td><td class="spec-val">512<span class="est">（参考大连理工大学系统级数据）</span></td></tr>
+            <tr><td class="spec-label">距离分辨率</td><td class="spec-val">4mm（750kHz）/ 2.5mm（1.2MHz）</td></tr>
+            <tr><td class="spec-label">角度分辨率</td><td class="spec-val">1°（750kHz）/ 0.6°（1.2MHz）<span class="est">*参考系统级数据</span></td></tr>
+            <tr><td class="spec-label">刷新率</td><td class="spec-val">40Hz</td></tr>
+            <tr><td class="spec-label">功耗</td><td class="spec-val">25W</td></tr>
+            <tr><td class="spec-label">壳体材质</td><td class="spec-val">铝合金（标准版）/ 钛合金（深海版）</td></tr>
+            <tr><td class="spec-label">重量（空气/水）</td><td class="spec-val">需向厂家确认</td></tr>
+            <tr><td class="spec-label">尺寸</td><td class="spec-val">需向厂家确认</td></tr>
+            <tr><td class="spec-label">接口协议</td><td class="spec-val">需向厂家确认</td></tr>
+            <tr><td class="spec-label">供电</td><td class="spec-val">需向厂家确认</td></tr>
+            <tr><td class="spec-label">国产化程度</td><td class="spec-val">国产化程度较高（具体国产化率需厂家提供BOM/国产化率证明）</td></tr>
+          </tbody>
+        </table>
+
+        <p class="note">注：瀚界官网未完整公开波束数、分辨率、角度分辨率、重量等参数，上表中带*参考值来自大连理工大学大型设备共享管理系统列示的M1200D &amp; C750D混合式成像声呐系统级指标 [$TRAE_REF](https://gxpt.dlut.edu.cn/genee/equipment/2534)，仅作参考，不等于瀚界官网C750D标准版完整参数。</p>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="label">2026年中国市场终端价</div>
+            <div class="value">￥182, 000</div>
+          </div>
+          <div class="info-item">
+            <div class="label">典型应用场景</div>
+            <div class="value">海洋牧场/渔业养殖：生物量监测<br>核电冷源水口：安全监测<br>水利水务：黄浦江原水渠道检测<br>应急救援：水下搜救、落水人员识别<br>海洋工程：阳江海上风电桩基检测、海底管线埋设<br>深海工程：深圳德创"深海矿工号"ROV搭载C750D<br>ROV/AUV/UUV平台搭载</div>
+          </div>
+          <div class="info-item">
+            <div class="label">典型客户画像</div>
+            <div class="value">海洋工程服务公司<br>核电运营单位<br>水利水务管理单位<br>应急救援部门<br>ROV制造商（深圳德创等）</div>
+          </div>
+        </div>
+
+        <div class="card" style="background: rgba(0,168,232,0.06); border: 1px solid rgba(0,168,232,0.2); margin-top: 16px;">
+          <div class="card-title" style="color: var(--accent);">SDK与软件生态</div>
+          <p style="font-size: 13px;">瀚界科技软件生态在国产品牌中较为突出 [$TRAE_REF](https://www.hanjie-tech.cn/support)：</p>
+          <ul style="margin-left: 20px; font-size: 13px; line-height: 1.7;">
+            <li>图像声呐ROS驱动 V1.1.5：可匹配C900、C750D等系列，免安装版本，已获麒麟、统信等国产操作系统兼容认证</li>
+            <li>图像声呐SDK V2.2.3：支持跨平台开发，提供全局纯C API接口与回调机制，配套Python脚本调用方案</li>
+            <li>图像声呐应用软件 V1.9.26：显控软件</li>
+            <li>支持中、英、日多语言</li>
+          </ul>
+        </div>
+
+        <div class="card" style="background: rgba(46,204,113,0.06); border: 1px solid rgba(46,204,113,0.2); margin-top: 16px;">
+          <div class="card-title" style="color: var(--green);">与进口产品差距分析</div>
+          <ul style="margin-left: 20px; font-size: 13px; line-height: 1.7;">
+            <li>C750D在频率配置和探测距离上对标Blueprint Oculus M750d，双频切换能力接近</li>
+            <li>波束数（512）与Teledyne M900（768）仍有差距</li>
+            <li>SDK生态在国产品牌中最为完善，ROS驱动+SDK+国产OS认证形成差异化亮点</li>
+            <li>深海版C750DH6（6000m）已有公开报道，但工程验证案例公开度不及Teledyne M900 D</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- #5 珠海蓝衡科技 SV1203 EL -->
+    <div class="subsection">
+      <h3>国产竞品五 ｜ 珠海蓝衡科技 — SV1203 EL</h3>
+      <div class="card">
+        <div class="card-title">
+          <span class="badge badge-domestic">国产</span>
+          蓝衡科技 SV1203 EL 微型主被动前视声呐
+        </div>
+        <p>珠海市蓝衡科技有限公司（SAPPHIREVIEW TECHNOLOGIES），2018年成立，注册地广东珠海香洲区南方软件园。高新技术企业、科技型中小企业、专精特新中小企业。注册资本500万元。官网称"不融资，不入股，不参股，不贷款"，坚持独立自主。核心研发人为戴戈研究员。 [$TRAE_REF](https://www.sapphireview.cn/)</p>
+        <p>SV1203 EL为微型主被动前视声呐，是蓝衡科技主推型号，支持多频段切换和被动测向。另有SV1206（双频微型）、SV1213A（低成本双频）、SV1216（动态图像声呐）、SV1210（超高频1.8/3MHz）、SV1310（6000m深海）、SV1311（全海深11000m）等型号。官网称所有产品均自行研制，具有完全自主知识产权。 [$TRAE_REF](https://www.sapphireview.cn/sys-pd/14.html)</p>
+
+        <table>
+          <thead><tr><th colspan="2">核心指标（SV1203 EL）</th></tr></thead>
+          <tbody>
+            <tr><td class="spec-label">工作频率</td><td class="spec-val">375kHz / 400kHz / 700kHz / 750kHz / 900kHz / 1.2MHz / 1.8MHz / 2.1MHz（支持单频与双频配置）</td></tr>
+            <tr><td class="spec-label">最大探测距离</td><td class="spec-val">200m（375kHz）/ 120m（750kHz）/ 60m（1.2MHz）/ 40m（1.2MHz+2.1MHz双频）</td></tr>
+            <tr><td class="spec-label">最大耐压深度</td><td class="spec-val"><strong>300m / 500m / 1500m</strong>（订购时选择）；另有SV1310（6000m）/ SV1311（11000m全海深）</td></tr>
+            <tr><td class="spec-label">水平开角</td><td class="spec-val">140°</td></tr>
+            <tr><td class="spec-label">垂直开角</td><td class="spec-val">9°–30°（视频率而定）</td></tr>
+            <tr><td class="spec-label">波束数量</td><td class="spec-val">768</td></tr>
+            <tr><td class="spec-label">距离分辨率</td><td class="spec-val">2.5mm</td></tr>
+            <tr><td class="spec-label">角度分辨率</td><td class="spec-val">未公开</td></tr>
+            <tr><td class="spec-label">刷新率</td><td class="spec-val">最大40Hz（与距离和工作模式相关）</td></tr>
+            <tr><td class="spec-label">功耗</td><td class="spec-val">平均约12W，峰值&lt;50W</td></tr>
+            <tr><td class="spec-label">通信接口</td><td class="spec-val">1路百兆以太网，1路同步接口（可选）</td></tr>
+            <tr><td class="spec-label">供电</td><td class="spec-val">18~50VDC</td></tr>
+            <tr><td class="spec-label">重量（空气/水）</td><td class="spec-val">300m/500m型：约840g/350g；1500m型：1.3kg/700g</td></tr>
+            <tr><td class="spec-label">尺寸</td><td class="spec-val">300m/500m型：120×50×113.5mm；1500m型：126×56×119.5mm</td></tr>
+            <tr><td class="spec-label">壳体材质</td><td class="spec-val">铝合金（300m/500m）/ 钛合金（1500m）</td></tr>
+            <tr><td class="spec-label">国产化程度</td><td class="spec-val">官网称可提供全国产化器件的自主可控版本（具体国产化率需厂家提供BOM证明）</td></tr>
+          </tbody>
+        </table>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="label">2026年中国市场终端价</div>
+            <div class="value"><br>阿里巴巴交易价：US$33,999。<br><strong data-start="1263" data-end="1276" style="font-size: 13px; background-color: rgba(0, 168, 232, 0.06); width: 130.094px; height: 41.3333px; transform: matrix(1, 0, 0, 1, 0, -24); outline: none !important; outline-offset: 0px !important; cursor: text !important;">人民币约20–30万元级</strong><table data-start="1100" data-end="1278" class="w-fit min-w-(--thread-content-width)"><tbody data-start="1165" data-end="1278"><tr data-start="1165" data-end="1278"><td data-col-size="sm" data-start="1261" data-end="1278"><strong data-start="1263" data-end="1276" style="width: 130.094px; height: 41.3333px; transform: matrix(1, 0, 0, 1, 0, -24);"></strong></td></tr></tbody></table></div>
+          </div>
+          <div class="info-item">
+            <div class="label">典型应用场景</div>
+            <div class="value">水下目标探测与识别<br>避碰导航（输出前10个最强目标点方位和距离）<br>水下SLAM（SV1503全向型360°成像）<br>管道/罐体检测<br>鱼类识别（网箱鱼群监测）<br>海洋考古勘测<br>深潜器作业（曾下潜马里亚纳海沟）<br>UUV/ROV/USV平台</div>
+          </div>
+          <div class="info-item">
+            <div class="label">典型客户画像</div>
+            <div class="value">水下机器人制造商<br>海洋科考单位<br>渔业养殖企业<br>海洋考古团队<br>深潜器运营单位</div>
+          </div>
+        </div>
+
+        <div class="card" style="background: rgba(0,168,232,0.06); border: 1px solid rgba(0,168,232,0.2); margin-top: 16px;">
+          <div class="card-title" style="color: var(--accent);">SDK与软件生态</div>
+          <ul style="margin-left: 20px; font-size: 13px; line-height: 1.7;">
+            <li>标配图像声呐显控软件（U盘交付）</li>
+            <li>公开通信协议：《蓝衡科技前视声呐以太网通用通信协议》</li>
+            <li>ROS驱动：未公开</li>
+            <li>SDK/API：未公开是否提供C/C++/Python SDK</li>
+            <li>跨平台支持：未公开</li>
+          </ul>
+        </div>
+
+        <div class="card" style="background: rgba(46,204,113,0.06); border: 1px solid rgba(46,204,113,0.2); margin-top: 16px;">
+          <div class="card-title" style="color: var(--green);">与进口产品差距分析</div>
+          <ul style="margin-left: 20px; font-size: 13px; line-height: 1.7;">
+            <li>SV1203在波束数（768）上与Teledyne M900持平，距离分辨率（2.5mm）优于多数进口同级</li>
+            <li>多频段切换能力（375kHz–2.1MHz）覆盖范围远超进口同级产品（通常2个频段）</li>
+            <li>全海深型号SV1311（11000m）在国产品牌中独一无二</li>
+            <li>主要差距：SDK/ROS生态透明度不足，角度分辨率未公开，品牌知名度和工程验证案例公开度不及进口头部</li>
+            <li>功耗控制优秀（平均12W），适合小型ROV/AUV</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ========== 第四部分：全市场产品指标横向对比总表 ========== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="num">4</div>
+      <div>
+        <h2>全市场产品指标横向对比总表</h2>
+        <div class="en">Cross-Comparison Matrix &amp; SWOT Analysis</div>
+      </div>
+    </div>
+
+    <h3 style="color: var(--accent); margin-bottom: 16px; padding-left: 14px; border-left: 3px solid var(--accent);">4.1 八款产品核心技术参数对比矩阵</h3>
+
+    <div style="overflow-x: auto;">
+    <table class="comparison-matrix" style="font-size: 12px;">
+      <thead>
+        <tr>
+          <th style="width: 8%;">对比维度</th>
+          <th style="color: var(--accent);">Teledyne M900 D</th>
+          <th style="color: var(--accent);">Tritech 720iks</th>
+          <th style="color: var(--accent);">Oculus M750d</th>
+          <th style="color: var(--green);">海底鹰 FLS800D</th>
+          <th style="color: var(--green);">博海深衡 BHQ-750d</th>
+          <th style="color: var(--green);">海卓同创 IS720M</th>
+          <th style="color: var(--green);">瀚界 C750D</th>
+          <th style="color: var(--green);">蓝衡 SV1203</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="spec-label">品牌国别</td><td>美国/丹麦</td><td>英国</td><td>英国</td><td>中国（昆明）</td><td>中国（宁波）</td><td>中国（北京）</td><td>中国（上海）</td><td>中国（珠海）</td></tr>
+        <tr><td class="spec-label">频率</td><td>900kHz</td><td>720kHz CHIRP</td><td>750kHz/1.2MHz</td><td>850/1150kHz</td><td>750kHz/1.2MHz</td><td>720kHz/1.2MHz</td><td>750kHz/1.2MHz</td><td>750/1.2MHz等</td></tr>
+        <tr><td class="spec-label">最远探测</td><td>100m</td><td>120m</td><td>120m</td><td>120m/40m</td><td>120m/40m</td><td><span class="est"><span style="color: rgb(209, 227, 240);">120m/40m</span></span></td><td>120m/40m</td><td>120m/60m</td></tr>
+        <tr><td class="spec-label">耐压深度</td><td><strong>6000m</strong>(D)/1000m(S)</td><td>350m</td><td>500m(M)/1000m(MT)/4000m(MD)</td><td>400/600/1500m</td><td>300m</td><td>350m<br><span class="est"></span></td><td>500m</td><td>300m/500m/1500m）</td></tr>
+        <tr><td class="spec-label">水平开角</td><td>130°</td><td>120°</td><td>130°/70°</td><td>130°/100°</td><td>130°/130°</td><td>130°</td><td>130°/80°</td><td>140°</td></tr>
+        <tr><td class="spec-label">波束数</td><td>768</td><td>512</td><td>512</td><td>512</td><td>512</td><td>512</td><td>512</td><td>768</td></tr>
+        <tr><td class="spec-label">距离分辨率</td><td>1.3cm</td><td>4mm</td><td>4mm/2.5mm</td><td><strong>2mm</strong></td><td>4mm/2.5mm</td><td>2.5mm<span class="est">*</span></td><td>4mm/2.5mm</td><td>2.5mm</td></tr>
+        <tr><td class="spec-label">角度分辨率</td><td>0.18°</td><td>0.25°有效</td><td>1°/0.6°</td><td>0.25°/0.2°</td><td><strong data-start="672" data-end="683">1°/0.6°</strong></td><td><strong>0.4°</strong></td><td>1°/0.6°<span class="est">*</span></td><td>未公开</td></tr>
+        <tr><td class="spec-label">刷新率</td><td>25Hz</td><td>最高97Hz*</td><td>40Hz</td><td>40Hz</td><td>40Hz</td><td>—</td><td>40Hz</td><td>40Hz</td></tr>
+        <tr><td class="spec-label">功耗</td><td>20W</td><td>16–27W</td><td>10–35W</td><td>≤48W</td><td>10–35W</td><td>&lt;50W</td><td>25W</td><td>12W（均值）</td></tr>
+        <tr><td class="spec-label">空中重量</td><td>7.9kg(D)</td><td>1.40kg</td><td>0.98kg</td><td>1.3kg</td><td>0.98kg</td><td>1.4kg(单频)</td><td>需确认</td><td>840g(300m型)</td></tr>
+        <tr><td class="spec-label">水中重量</td><td>5.2kg(D)</td><td>0.43kg</td><td>0.36kg</td><td>0.41kg</td><td>0.36kg</td><td>0.3kg</td><td>需确认</td><td>350g(300m型)</td></tr>
+        <tr><td class="spec-label">接口</td><td>Ethernet/VDSL</td><td>Ethernet</td><td>百兆以太网</td><td>百兆以太网</td><td>百兆以太网</td><td>百兆网<span class="est"></span></td><td>需确认</td><td>百兆以太网</td></tr>
+        <tr><td class="spec-label">SDK</td><td>ProViewer+SDK</td><td>Genesis SDK<br>+GeminiComms</td><td>Oculus SDK<br>Windows/Linux<br>ROS1/ROS2</td><td>配套软件+SDK(需确认)</td><td>定制开发<span class="est"></span></td><td>支持定制开发</td><td>ROS驱动+SDK<br>(C API/Python)</td><td>配套软件+<br>公开通信协议</td></tr>
+        <tr><td class="spec-label">国产化程度</td><td>—</td><td>—</td><td>—</td><td>较高*</td><td>较高*</td><td>较高*</td><td>较高(需BOM证明)</td><td>可提供全国产化版本</td></tr>
+        <tr><td class="spec-label">价格参考</td><td>25–40万(D)*<br>S型需询价</td><td>5–10万</td><td>18–25万（2026成交约23万）</td><td><strong>15万**（公开交易价格）</strong></td><td>25-30万</td><td>8–15万</td><td>18.2W（2024年中标价）</td><td>20-30万</td></tr>
+        <tr><td class="spec-label">价格类型</td><td>D型：市场估算<br>S型：厂家询价</td><td>询价</td><td>国外采购/第三方参考</td><td><strong>2026真实采购成交</strong></td><td>公开报价</td><td>市场估算</td><td>项目案例参考</td><td>官网称低于进口一半</td></tr>
+        <tr><td class="spec-label">价格(vs进口)</td><td>基准</td><td>基准</td><td>基准</td><td><strong>约40%–55%</strong></td><td><strong>约50%–65%</strong></td><td><strong>约40%–55%</strong></td><td>需询价确认</td><td>需询价确认</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    
+
+    
+
+    
+    <p class="note" style="margin-top: 8px;">
+      注：可信度星级基于公开可验证程度（真实采购成交 &gt; 官方公开报价 &gt; 市场估算 &gt; 厂家询价）。实际成交价因配置、数量、项目背景不同会有差异，建议以询价为准。
+    </p>
+
+    <h3 style="color: var(--accent); margin: 32px 0 16px; padding-left: 14px; border-left: 3px solid var(--accent);">4.3 SWOT分析</h3>
+
+    <!-- SWOT: Imported -->
+    <div class="subsection">
+      <h4 style="color: #fff; margin-bottom: 16px; font-size: 16px;">A. 进口品牌整体SWOT</h4>
+      <div class="swot-grid">
+        <div class="swot-box swot-s">
+          <h4 style="color: var(--green);">S — 优势</h4>
+          <ul>
+            <li>算法成像清晰度领先：Teledyne/Tritech在波束成形、动态聚焦、CHIRP处理、图像后处理算法上有10年以上迭代积累</li>
+            <li>深水可靠性经过实证：BlueView M900 D（6000m）经过大量深海科考和油气工程验证</li>
+            <li>全球服务体系：Teledyne在中国有授权代理，备件库和技术支持响应链成熟</li>
+            <li>SDK生态完善：Teledyne提供ProViewer+SDK，Tritech提供Genesis+SDK，第三方ROS驱动社区活跃</li>
+            <li>多波束处理技术壁垒：768波束（BlueView M900）的密集波束成形技术仍领先国产512波束方案</li>
+          </ul>
+        </div>
+        <div class="swot-box swot-w">
+          <h4 style="color: var(--red);">W — 劣势</h4>
+          <ul>
+            <li>价格高昂：深海版（D型）终端价¥25–40万，为国产同级2–3倍</li>
+            <li>M900 S型公开价格未披露，实际成交价需询价确认；深海版（D型 6000m）市场估算价格坚挺（¥25–40万，非官方公开价）</li>
+            <li>供货周期长：标准交货期3–6个月，加急需额外费用</li>
+            <li>定制化能力弱：不针对中国客户非标需求做硬件定制</li>
+            <li>出口管制风险：美国EAR管制清单可能影响高端型号对华交付</li>
+          </ul>
+        </div>
+        <div class="swot-box swot-o">
+          <h4 style="color: var(--accent);">O — 机会</h4>
+          <ul>
+            <li>深海科考和深海矿产开发带来4000m+深水前视声呐增量需求</li>
+            <li>AUV/USV智能化趋势推动前视声呐向小型化、低功耗、智能避障升级</li>
+            <li>港口安防和反水下入侵需求持续增长</li>
+          </ul>
+        </div>
+        <div class="swot-box swot-t">
+          <h4 style="color: var(--orange);">T — 威胁</h4>
+          <ul>
+            <li>国产替代政策：军工和政府项目采购中"国产优先"条款持续加码</li>
+            <li>国产品牌技术追赶：海底鹰FLS800D第三代图像清晰度提升30%，差距缩小</li>
+            <li>国产品牌通过性价比优势持续渗透浅水市场，进口品牌利润空间受挑战</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SWOT: Domestic -->
+    <div class="subsection">
+      <h4 style="color: #fff; margin-bottom: 16px; font-size: 16px;">B. 国产品牌整体SWOT</h4>
+      <div class="swot-grid">
+        <div class="swot-box swot-s">
+          <h4 style="color: var(--green);">S — 优势</h4>
+          <ul>
+            <li>价格优势显著：终端价为进口同级产品的40%–65%</li>
+            <li>交付周期短：2–4周交付（进口3–6个月）</li>
+            <li>定制化服务：耐压深度档位定制、安装接口非标设计、软件功能定制</li>
+            <li>本地化技术支持：现场调试、快速返厂维修</li>
+            <li>国产化程度较高：国产主要厂商均宣称较高国产化水平，具体需以厂家BOM/国产化率证明为准</li>
+            <li>核心参数追平：512波束、2mm分辨率、130° FOV、40Hz刷新率已达进口同级</li>
+          </ul>
+        </div>
+        <div class="swot-box swot-w">
+          <h4 style="color: var(--red);">W — 劣势</h4>
+          <ul>
+            <li>深水可靠性验证不足：国产品牌6000m耐压档位尚无大规模商用案例</li>
+            <li>核心芯片依赖：高速ADC/DAC芯片仍依赖进口</li>
+            <li>品牌认知度低：大型油气公司和国际科考项目缺乏成功案例背书</li>
+            <li>算法成熟度差距：复杂浑浊水体和强混响环境下图像处理算法仍落后</li>
+            <li>SDK与开发生态相对有限：进口品牌的公开SDK、Linux/ROS和开发文档生态相对成熟；国产品牌已经具备配套软件及定制开发能力，但公开SDK/API、原始数据协议、跨平台开发资料的透明度仍相对有限</li>
+            <li><strong>售后体系不透明</strong>：维修周转时间（TAT）、备件库存、维修报价缺乏标准化承诺</li>
+          </ul>
+        </div>
+        <div class="swot-box swot-o">
+          <h4 style="color: var(--accent);">O — 机会</h4>
+          <ul>
+            <li>浅水工程市场（大坝检测、内河航道、城市水务）需求爆发</li>
+            <li>中小型ROV/AUV厂商对高性价比前视声呐需求旺盛</li>
+            <li>国家"深海装备国产化"政策持续加码</li>
+            <li>"一带一路"海洋监测出口市场增长</li>
+          </ul>
+        </div>
+        <div class="swot-box swot-t">
+          <h4 style="color: var(--orange);">T — 威胁</h4>
+          <ul>
+            <li>进口品牌通过渠道策略调整参与浅水市场竞争，国产需持续构建差异化优势</li>
+            <li>技术封锁升级：高端换能器材料和专用芯片进口管制可能加剧</li>
+            <li>同质化竞争：国内前视声呐厂商增加（已超7家），价格战风险</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ========== 第五部分：客户需求与场景固化 ========== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="num">5</div>
+      <div>
+        <h2>客户需求与场景固化</h2>
+        <div class="en">Customer Demand &amp; Application Scenario Analysis</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>5.1 六大应用场景深度分析</h3>
+
+      <div class="card">
+        <div class="card-title">
+          <span class="badge badge-import">场景一</span>
+          浅水观测级ROV（&lt;300m）
+        </div>
+        <p>预计浅水ROV是国内商业化FLS最大的需求场景之一，是市场规模较大的细分领域。典型应用包括内河航道检测、水库大坝巡检、浅水管道巡检、教学演示等。ROV工作水深通常不超过300m，对声呐的耐压要求较低，但对重量、功耗和成本极为敏感。</p>
+        <p><strong>竞争格局</strong>：国产品牌已占据主导地位。海底鹰FLS800D（铝合金档）、博海深衡BHQ-750d在该领域与进口品牌直接竞争，价格优势显著。进口品牌中，Blueprint Oculus M750d和Tritech Gemini 720iks仍有一定份额，但面临国产替代压力。Teledyne BlueView S型价格需询价确认，进口品牌在中端市场仍具备品牌影响力。</p>
+        <p><strong>市场机会</strong>：中小型ROV制造商（年产50–500台）对成本高度敏感，国产价格区间（¥8–15万）较进口同级（¥12–20万）有显著吸引力。该领域是国产新进入者最容易切入的市场。</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span class="badge badge-import">场景二</span>
+          中深水作业级ROV（300–1500m）
+        </div>
+        <p>该场景主要包括海上风电桩基检测、近海油气设施巡检、深水管道巡检等。ROV工作水深300–1500m，要求声呐耐压≥1500m，同时保持较好的分辨率和刷新率。</p>
+        <p><strong>竞争格局</strong>：进口品牌仍占优势，但国产正在突破。Teledyne BlueView M900 D标准版（1000m）和Blueprint Oculus钛合金版（1000m）是该区间的主要进口选择。海底鹰FLS800D钛合金档（1500m）是当前该区间少数具备成熟商业化出货验证的国产型号之一（博海深衡等虽有深海型号布局，但多波束商业装机验证尚在爬坡期），但工程验证案例仍少于进口品牌。</p>
+        <p><strong>市场机会</strong>：海上风电运维项目实际作业水深通常低于1500m，但工程服务商可能采用300m、600m、1000m甚至1500m级ROV平台，因此1500m级声呐的价值主要体现在平台通用性和跨项目复用能力，而非单一风场水深需求。国产1500m档位产品若能在可靠性上建立口碑，有望在该场景实现份额提升。</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span class="badge badge-import">场景三</span>
+          深海ROV/AUV（&gt;3000m）
+        </div>
+        <p>该场景包括深海科考、深海矿产勘探、深海油气脐带缆巡检等，工作水深通常超过3000m，对声呐耐压要求≥6000m。深海ROV/AUV单机价值高，但年新增装机量相对有限，属于高价值、小批量市场。</p>
+        <p><strong>竞争格局</strong>：进口品牌近乎垄断。Teledyne在6000m级前视成像声呐方面具有较成熟的产品和工程验证优势，在深海科考和油气领域有较强话语权。国产博海深衡BHQ-TS系列标称4000m耐压，但缺乏公开工程验证案例，市场接受度有限。</p>
+        <p><strong>市场机会</strong>：国产在该场景短期内难以突破，主要受限于深海钛合金壳体设计、深海密封连接器技术和长期可靠性验证。对于新进入者，不建议将该场景作为初期主攻方向。</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span class="badge badge-import">场景四</span>
+          港口安防/固定式部署
+        </div>
+        <p>港口水下安防、反水下入侵、重要水域固定式监控等应用。声呐通常固定部署于码头、防波堤或水下基阵，对耐压要求不高（≥50m即可），但对探测距离（≥100m）、刷新率稳定性和远程控制/SDK支持有较高要求。</p>
+        <p><strong>竞争格局</strong>：进口品牌（Teledyne、Tritech）和国产品牌（海底鹰、海卓同创）均有参与。部分军工、政府及重点行业项目存在国产化、供应链安全或国产品牌优先要求，具体门槛以项目招标文件为准。国产品牌在此类项目中具备一定资质优势。</p>
+        <p><strong>市场机会</strong>：港口安防市场受国际形势和反恐需求驱动，呈稳定增长态势。国产产品在满足国产化率要求的同时，价格优势有助于在政府采购中中标。</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span class="badge badge-import">场景五</span>
+          科研/搜救
+        </div>
+        <p>科研院所、高校、搜救单位的前视声呐应用。科研客户通常需要开放SDK、原始数据访问和跨平台支持（Linux/ROS），用于算法研究、目标识别和自主导航开发。搜救客户则关注刷新率（动态目标跟踪）和便携性。</p>
+        <p><strong>竞争格局</strong>：进口品牌在该场景占优。Tritech Gemini 720iks因社区ROS驱动成熟、Genesis SDK可申请获取，在科研市场渗透率最高。Teledyne BlueView SDK同样开放，但价格较高。国产品牌公开SDK/API和原始数据协议的透明度相对有限，对科研客户的集成便利性有待提升。</p>
+        <p><strong>市场机会</strong>：国产品牌若能在SDK开放程度和ROS/ Linux支持上补齐短板，有望以价格优势切入科研市场。搜救市场对刷新率要求高（≥60Hz），Tritech Gemini 720iks的97Hz极限刷新率在该场景形成技术壁垒。</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span class="badge badge-import">场景六</span>
+          军工/政府采购
+        </div>
+        <p>军方水下安防、反潜、港口防御等应用，以及各级政府采购项目。该类项目通常存在国产化、供应链安全或国产品牌优先要求，且对供应商资质、保密能力和本地化服务有严格审核，具体门槛以项目招标文件为准。</p>
+        <p><strong>竞争格局</strong>：国产品牌占据主导。海底鹰FLS800D和博海深衡BHQ系列均宣称较高国产化水平，在国产优先项目中具备竞争优势。进口品牌在部分军工/政府项目中可能受限于国产化要求。</p>
+        <p><strong>市场机会</strong>：该场景是国产前视声呐最稳固的基本盘，受政策保护，进口品牌难以进入。但市场容量相对有限，且客户对价格敏感度低于对可靠性和服务响应的要求。</p>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>5.2 按耐压等级的竞争分层</h3>
+      <p>根据各产品标称最大耐压深度，市场可分为三个竞争层级：</p>
+      <table>
+        <thead><tr><th>层级</th><th>耐压范围</th><th>代表产品</th><th>市场特点</th></tr></thead>
+        <tbody>
+          <tr><td class="spec-label"><strong>A层 深海高端</strong></td><td>≥3000m</td><td>Teledyne M900 D（6000m）、蓝衡SV1310（6000m）、瀚界C750DH6（6000m）、蓝衡SV1311（11000m全海深）</td><td>技术壁垒极高，进口主导，国产开始布局但工程验证要求严格</td></tr>
+          <tr><td class="spec-label"><strong>B层 中深水</strong></td><td>1000–1500m</td><td>Teledyne M900 S、Blueprint MT750d、海底鹰1500m、瀚界C400H（1000m钛合金）</td><td>进口仍占优，国产逐步渗透，海上风电等驱动增长</td></tr>
+          <tr><td class="spec-label"><strong>C层 浅水主流</strong></td><td>≤500m</td><td>Tritech 720iks、Blueprint M750d、FLS800D、BHQ-750d、IS720M、瀚界C750D、蓝衡SV1203</td><td>竞品最多、价格竞争激烈、国产替代进展最快</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection">
+      <h3>5.3 各场景技术需求约束</h3>
+      <table>
+        <thead><tr><th>场景</th><th>耐压硬性要求</th><th>探测距离硬性要求</th><th>刷新率硬性要求</th><th>重量约束</th><th>技术门槛说明</th></tr></thead>
+        <tbody>
+          <tr><td class="spec-label">浅水观测级ROV（&lt;300m）</td><td>≥300m</td><td>≥80m</td><td>≥20Hz</td><td>≤2kg（空气中）</td><td>超过2kg会严重影响小型ROV平衡与续航</td></tr>
+          <tr><td class="spec-label">中深水作业级ROV（300–1500m）</td><td>≥1500m</td><td>≥100m</td><td>≥30Hz</td><td>≤3kg</td><td>耐压不足1500m无法进入海上风电桩基检测市场</td></tr>
+          <tr><td class="spec-label">深海ROV/AUV（&gt;3000m）</td><td>≥6000m</td><td>≥80m</td><td>≥15Hz</td><td>≤10kg</td><td>耐压不足6000m直接出局，国产尚无成熟商用方案</td></tr>
+          <tr><td class="spec-label">港口安防固定式</td><td>≥50m</td><td>≥100m</td><td>≥10Hz</td><td>无严格限制</td><td>必须有SDK支持远程控制与数据回传</td></tr>
+          <tr><td class="spec-label">科研/搜救便携</td><td>≥300m</td><td>≥80m</td><td>≥60Hz</td><td>≤1.5kg</td><td>刷新率&lt;60Hz难以满足动态目标跟踪需求</td></tr>
+          <tr><td class="spec-label">军工/政府采购</td><td>按项目要求</td><td>≥100m</td><td>≥20Hz</td><td>按平台要求</td><td>部分项目存在国产化/供应链安全要求，具体门槛以招标文件为准</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection">
+      <h3>5.4 客户决策因素分析</h3>
+      <p>不同应用场景下，客户的决策权重存在显著差异：</p>
+      <table>
+        <thead><tr><th>决策因素</th><th>浅水观测级ROV</th><th>中深水作业</th><th>深海ROV/AUV</th><th>港口安防</th><th>科研/搜救</th><th>军工/政府</th></tr></thead>
+        <tbody>
+          <tr><td class="spec-label">价格敏感度</td><td>极高</td><td>高</td><td>中</td><td>中</td><td>中</td><td>低</td></tr>
+          <tr><td class="spec-label">品牌偏好</td><td>低</td><td>中</td><td>极高</td><td>中</td><td>高</td><td>低（国产优先）</td></tr>
+          <tr><td class="spec-label">技术门槛（SDK）</td><td>低</td><td>中</td><td>高</td><td>中</td><td>极高</td><td>中</td></tr>
+          <tr><td class="spec-label">政策约束</td><td>低</td><td>中</td><td>低</td><td>高</td><td>低</td><td>极高</td></tr>
+          <tr><td class="spec-label">售后响应要求</td><td>中</td><td>高</td><td>极高</td><td>高</td><td>中</td><td>极高</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection">
+      <h3>5.5 场景-产品竞争格局矩阵</h3>
+      <table>
+        <thead><tr><th>场景</th><th>进口占优</th><th>国产突破</th><th>真空地带</th></tr></thead>
+        <tbody>
+          <tr><td class="spec-label">浅水观测级ROV</td><td>Tritech Gemini在小型ROV仍有品牌惯性</td><td>海底鹰、博海深衡已主导性价比市场</td><td>超低成本（&lt;¥5万）可靠产品稀缺</td></tr>
+          <tr><td class="spec-label">中深水作业级ROV</td><td>Teledyne、Blueprint 1000m档仍为主流</td><td>海底鹰1500m钛合金档逐步渗透</td><td>1500–3000m区间国产验证不足</td></tr>
+          <tr><td class="spec-label">深海ROV/AUV</td><td>Teledyne M900 D（6000m）近乎垄断</td><td>博海深衡BHQ-TS 4000m待验证</td><td>6000m国产商用产品空白</td></tr>
+          <tr><td class="spec-label">港口安防/固定式</td><td>Teledyne在高端港口仍有案例</td><td>海底鹰、海卓同创在政府采购中占优</td><td>智能分析+声呐一体化方案稀缺</td></tr>
+          <tr><td class="spec-label">科研/搜救</td><td>Tritech、Teledyne因SDK开放度高占优</td><td>国产在搜救性价比市场有渗透</td><td>国产公开SDK/ROS和原始数据开放度有待提升</td></tr>
+          <tr><td class="spec-label">军工/政府采购</td><td>部分项目受国产化要求限制</td><td>海底鹰、博海深衡具备竞争优势</td><td>高可靠深海军用产品仍依赖进口</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ========== 第六部分：结论与战略建议 ========== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="num">6</div>
+      <div>
+        <h2>结论与战略建议</h2>
+        <div class="en">Conclusions &amp; Strategic Recommendations</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>6.1 产线方向建议</h3>
+      <div class="strategy-box">
+        <div class="verdict">主攻方向：300–500m级小型化低功耗2D多波束前视成像声呐</div>
+        <p style="margin-bottom: 14px;">基于2026年市场数据和竞争格局分析，前视声呐产线<strong>第一阶段不建议直接进入6000m深海高端前视声呐市场，而应优先布局300–500m级、小型化、低功耗、120m级探测距离的2D多波束前视成像声呐</strong>。判断依据如下：</p>
+        <table>
+          <thead><tr><th style="width: 25%;">决策维度</th><th style="width: 37.5%;">浅水方向（≤500m）</th><th style="width: 37.5%;">深水方向（≥3000m）</th></tr></thead>
+          <tbody>
+            <tr><td class="spec-label">市场规模</td><td>浅水ROV是国内商业化FLS最大的需求场景之一</td><td>深海ROV/AUV单机价值高，年新增装机量相对有限，属高价值小批量市场</td></tr>
+            <tr><td class="spec-label">竞争格局</td><td>竞品已经形成，但市场仍有差异化空间：现有产品集中在720–900kHz、120m左右、512–768 beams、130°左右、20–50W，说明市场技术路线已比较明确</td><td>Teledyne在6000m级前视成像声呐方面具有较成熟的产品和工程验证优势，国产BHQ-TS 4000m工程验证待观察</td></tr>
+            <tr><td class="spec-label">技术门槛</td><td>≤500m耐压壳体设计成熟，算法2–3年可达进口同级</td><td>6000m钛合金壳体、深海密封连接器需5–8年积累</td></tr>
+            <tr><td class="spec-label">竞争差异化空间</td><td>国产品牌已经证明价格空间存在：FLS800D在2026年公开采购中出现15万元/套的真实成交案例。未来竞争重点应从"波束数/距离分辨率"逐步转向"图像质量 + SDK + ROS/Linux + API + 快速交付 + 本地售后 + 定制能力"</td><td>深水区进口价格坚挺（市场估算¥25–40万，非官方公开价），无价格战压力但技术门槛极高</td></tr>
+            <tr><td class="spec-label">客户决策模式</td><td>预算驱动：浅水客户对价格高度敏感</td><td>可靠性驱动：优先选经验证的进口品牌</td></tr>
+            <tr><td class="spec-label">资源匹配度</td><td><strong>高匹配</strong>：已有浅水ROV/AUV平台配套经验</td><td><strong>低匹配</strong>：缺乏深海工程验证经验和客户关系</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top: 14px; color: var(--text-dim); font-size: 13px;">深水方向（1500m–4000m档位）建议作为<strong>第二阶段产品线</strong>，在浅水产品实现规模出货、品牌建立后再向深水延伸。</p>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>6.2 市场推广策略</h3>
+      <div class="strategy-box">
+        <div class="verdict">客户优先级：中小型ROV/AUV制造商 &gt; 水利水务检测单位 &gt; 海洋工程浅水作业公司</div>
+        <table>
+          <thead><tr><th style="width: 20%;">客户类型</th><th style="width: 15%;">优先级</th><th style="width: 30%;">目标客户画像</th><th>市场进入策略</th></tr></thead>
+          <tbody>
+            <tr><td class="spec-label">中小型ROV/AUV制造商</td><td><span style="color: var(--red); font-weight: 700;">★★★ 第一优先</span></td><td>深圳/杭州/武汉/西安水下机器人创业公司，年产ROV 50–500台</td><td>提供"声呐+集成SDK+技术支持"打包方案，以2周交付速度形成与进口3–6个月交货期的差异化</td></tr>
+            <tr><td class="spec-label">水利水务检测单位</td><td><span style="color: var(--orange); font-weight: 700;">★★ 第二优先</span></td><td>各省市水利设计院、水库管理局、城市水务集团检测部门</td><td>以大坝/闸门/取水口检测为切入点，提供"声呐+检测方案+培训"交钥匙方案</td></tr>
+            <tr><td class="spec-label">海洋工程浅水作业公司</td><td><span style="color: var(--yellow); font-weight: 700;">★ 第三优先</span></td><td>海上风电运维单位、港口工程公司、浅水管线巡检服务商</td><td>通过ROV厂商渠道间接渗透终端客户</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 style="color: #fff; margin: 28px 0 16px; font-size: 16px;">三大核心卖点</h4>
+      <div class="selling-points">
+        <div class="sp-card">
+          <div class="sp-num">1</div>
+          <div class="sp-title">进口级画质 · 国产化价格</div>
+          <div class="sp-desc">512波束 / 2mm距离分辨率 / 130°超广角，成像性能对标Teledyne BlueView M900与Tritech Gemini 720is，终端价格仅为进口同级40%–55%。</div>
+        </div>
+        <div class="sp-card">
+          <div class="sp-num">2</div>
+          <div class="sp-title">2周交付 · 深度定制</div>
+          <div class="sp-desc">标准型号2周内出货，进口品牌需3–6个月。支持耐压深度定制（400m/600m/1500m）、安装接口非标设计、软件功能定制开发。</div>
+        </div>
+        <div class="sp-card">
+          <div class="sp-num">3</div>
+          <div class="sp-title">毫米级分辨 · 浑浊水穿透</div>
+          <div class="sp-desc">双频在线切换（低频远距探测+高频近距识别），自研图像增强算法抑制雪花点和0°角亮线，浑浊水体仍可清晰成像。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>6.3 风险与应对</h3>
+      <table>
+        <thead><tr><th style="width: 20%;">风险类型</th><th style="width: 40%;">风险描述</th><th style="width: 40%;">应对策略</th></tr></thead>
+        <tbody>
+          <tr><td class="spec-label">SDK与开发生态差距</td><td>进口品牌的公开SDK、Linux/ROS和开发文档生态相对成熟；国产品牌已经具备配套软件及定制开发能力，但公开SDK/API、原始数据协议、跨平台开发资料的透明度仍相对有限</td><td>优先开发Linux/ROS驱动和Python SDK；提供完整的API文档和示例代码；建立开发者社区</td></tr>
+          <tr><td class="spec-label">售后TAT不透明</td><td>维修周转时间（TAT）、备件库存、维修报价缺乏标准化承诺，影响客户信心</td><td>建立标准化售后服务SLA；设立区域备件库；公开维修报价和TAT承诺</td></tr>
+          <tr><td class="spec-label">价格竞争风险</td><td>进口品牌与国产品牌在浅水市场价格区间存在重叠，竞争加剧</td><td>避免纯价格竞争，以定制化服务、交付速度和本地化技术支持构建差异化；向中深水（1500m）延伸以获取更高毛利</td></tr>
+          <tr><td class="spec-label">技术封锁升级</td><td>高端换能器材料和专用芯片进口管制可能加剧</td><td>推进核心芯片（高速ADC/DAC）国产化替代；与国内换能器材料供应商建立战略合作</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection">
+      <h3>6.4 产线路线图</h3>
+      <table>
+        <thead><tr><th>阶段</th><th>时间</th><th>产品定位</th><th>目标耐压</th><th>目标客户</th><th>核心指标</th></tr></thead>
+        <tbody>
+          <tr><td class="spec-label"><strong>第一阶段</strong></td><td>2026 Q3–2027 Q2</td><td>浅水标准型（对标Gemini 720iks / M750d）</td><td>300–500m</td><td>中小ROV/AUV厂商、水利水务、水下工程</td><td style="font-weight: bold;">720–900kHz / 120m探测 / 512波束 / 130°FOV / ≤30W / ≤1.5kg</td></tr>
+          <tr><td class="spec-label"><strong>第二阶段</strong></td><td>2027 Q3–2028 Q2</td><td>中水深水型（对标BlueView M900 D）</td><td>1500–3000m</td><td>海洋工程公司、海上风电运维</td><td>900kHz双频 / 100m探测 / 768波束 / 钛合金壳体 / ≤25W</td></tr>
+          <tr><td class="spec-label"><strong>第三阶段</strong></td><td>2028 Q3–2029 Q2</td><td>深海旗舰型（对标BlueView M900 D 6000m）</td><td>4000–6000m</td><td>深海科考、深海矿业、军方</td><td>多频段 / 长距离探测 / 智能目标识别算法</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ========== 附录：安装接口、SDK与售后补充信息 ========== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="num">A</div>
+      <div>
+        <h2>附录：安装接口、SDK与售后补充信息</h2>
+        <div class="en">Appendix — Mounting, SDK &amp; After-Sales</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>A.1 物理尺寸与安装接口</h3>
+      <p>安装接口的兼容性是ROV集成的关键约束。以下汇总八款产品的安装关键参数：</p>
+      <table>
+        <thead><tr><th>产品</th><th>尺寸（长×宽×高/直径）</th><th>空中重量</th><th>水中重量</th><th>安装方式</th><th>壳体材质</th><th>连接器类型</th></tr></thead>
+        <tbody>
+          <tr><td class="spec-label">BlueView M900 D Mk2</td><td>259mm × Ø127mm</td><td>7.9kg</td><td>5.2kg</td><td>法兰/支架安装</td><td>不锈钢/钛合金</td><td>SubConn水密</td></tr>
+          <tr><td class="spec-label">Tritech Gemini 720iks</td><td>紧凑型（见官方图纸）</td><td>1.40kg</td><td>0.43kg</td><td>支架安装</td><td>不锈钢</td><td>Impulse MKS(W)-307-FCR</td></tr>
+          <tr><td class="spec-label">Blueprint Oculus M750d</td><td>125×122×62mm</td><td>0.98kg</td><td>0.36kg</td><td>4×M4螺纹孔</td><td>阳极氧化铝/钛合金</td><td>Impulse IE55 6-way</td></tr>
+          <tr><td class="spec-label">海底鹰 FLS800D</td><td>125×118×80mm</td><td>1.3kg</td><td>0.41kg</td><td>底部4×M4 + 尾部2×M4</td><td>铝/不锈钢/钛合金</td><td></td></tr>
+          <tr><td class="spec-label">博海深衡 BHQ-750d</td><td>125×122×62mm</td><td>0.98kg</td><td>0.36kg</td><td></td><td><span class="est"></span></td><td></td></tr>
+          <tr><td class="spec-label">海卓同创 IS720M</td><td>155×125×62mm（单频）<br>247×116×94mm（双频）</td><td>1.4kg（单频）<br>3.4kg（双频）</td><td><span class="est">0.3kg</span></td><td>夹具固定</td><td></td><td>MCLP BH9FSS<span class="est"></span></td></tr>
+          <tr><td class="spec-label">瀚界 C750D</td><td>需向厂家确认</td><td>需向厂家确认</td><td>需向厂家确认</td><td>需向厂家确认</td><td>铝合金（标准版）/ 钛合金（深海版）</td><td>需向厂家确认</td></tr>
+          <tr><td class="spec-label">蓝衡 SV1203</td><td>120×50×113.5mm（300m/500m型）<br>126×56×119.5mm（1500m型）</td><td>840g（300m型）<br>1.3kg（1500m型）</td><td>350g（300m型）<br>700g（1500m型）</td><td>需向厂家确认</td><td>铝合金（300m/500m）/ 钛合金（1500m）</td><td>需向厂家确认</td></tr>
+        </tbody>
+      </table>
+      <div class="card" style="background: rgba(230,126,34,0.06); border: 1px solid rgba(230,126,34,0.2); margin-top: 16px;">
+        <p style="font-size: 13px;"><strong style="color: var(--orange);">技术评估要点：</strong>向海底鹰、博海深衡、海卓同创、瀚界、蓝衡等公司索要二维CAD安装图纸（含孔位图、重心/浮心位置、壳体材质耐腐蚀说明），评估与现有ROV平台的适配成本。特别关注：</p>
+        <ul style="margin-left: 20px; font-size: 13px; margin-top: 8px;">
+          <li>安装孔位间距与ROV前端安装板的匹配度</li>
+          <li>重心位置对ROV纵倾平衡的影响（水中重量差0.36kg–0.43kg，影响不大但需验证）</li>
+          <li>壳体材质与海水/淡水的电化学腐蚀兼容性（铝合金在海水环境中需额外防腐处理）</li>
+          <li>水密连接器型号是否与ROV穿舱件兼容（Impulse vs SubConn标准差异）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>A.2 SDK与软件生态对比</h3>
+      <table>
+        <thead><tr><th>产品</th><th>操作软件</th><th>SDK可用性</th><th>ROS支持</th><th>原始数据访问</th><th>跨平台支持</th></tr></thead>
+        <tbody>
+          <tr><td class="spec-label">Teledyne M900 D</td><td>ProViewer®</td><td>有（购买后提供）</td><td>社区驱动活跃</td><td>完整原始数据文件</td><td>Windows/Linux</td></tr>
+          <tr><td class="spec-label">Tritech Gemini 720iks</td><td>Genesis</td><td>Genesis SDK + GeminiComms接口（可申请）</td><td>社区驱动成熟</td><td>原始数据开放</td><td>Windows / Linux（Ubuntu 22.04/24.04）</td></tr>
+          <tr><td class="spec-label">Blueprint Oculus M750d</td><td>Oculus软件</td><td>可申请获取</td><td>ROS1/ROS2第三方生态较成熟</td><td>支持原始数据访问</td><td>Windows / Linux</td></tr>
+          <tr><td class="spec-label">海底鹰 FLS800D</td><td>配套软件</td><td>有</td><td><span class="est">*未明确</span></td><td>需确认</td><td>Windows为主</td></tr>
+          <tr><td class="spec-label">博海深衡 BHQ-750d</td><td>Windows GUI</td><td><span class="est">*未公开<br></span></td><td><span class="est">*未公开</span></td><td>需确认</td><td>Windows为主</td></tr>
+          <tr><td class="spec-label">海卓同创 IS720M</td><td>配套软件</td><td>支持定制开发</td><td><span class="est">*未明确</span></td><td>需确认</td><td>Windows为主</td></tr>
+          <tr><td class="spec-label">瀚界 C750D</td><td>应用软件 V1.9.26</td><td>SDK V2.2.3（纯C API+Python）</td><td>ROS驱动V1.1.5（麒麟/统信认证）</td><td>需确认</td><td>跨平台</td></tr>
+          <tr><td class="spec-label">蓝衡 SV1203</td><td>配套显控软件（U盘交付）</td><td>公开以太网通信协议</td><td>未公开</td><td>需确认</td><td>未公开</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection">
+      <h3>A.3 售后服务对比</h3>
+      <table>
+        <thead><tr><th>品牌</th><th>国内渠道/支持</th><th>TAT</th><th>备件</th><th>SDK/技术支持</th><th>质保</th></tr></thead>
+        <tbody>
+          <tr><td class="spec-label">Teledyne</td><td>上海官方办公室</td><td>未公开</td><td>需确认</td><td>强</td><td>12个月</td></tr>
+          <tr><td class="spec-label">Tritech</td><td>中国区授权渠道</td><td>未公开</td><td>需确认</td><td>强</td><td>需合同确认</td></tr>
+          <tr><td class="spec-label">Blueprint</td><td>未发现中国大陆官方代理</td><td>未公开</td><td>需确认</td><td>强</td><td>需合同确认</td></tr>
+          <tr><td class="spec-label">海底鹰</td><td>厂家直销/渠道</td><td>未公开</td><td>未公开</td><td>有</td><td>需确认</td></tr>
+          <tr><td class="spec-label">博海深衡</td><td>厂家直销</td><td>未公开</td><td>未公开</td><td>有配套软件</td><td>需确认</td></tr>
+          <tr><td class="spec-label">海卓同创</td><td>厂家直销/渠道</td><td>7–14工作日维修目标</td><td>有返修备用机服务</td><td>有定制能力</td><td>需确认</td></tr>
+          <tr><td class="spec-label">瀚界</td><td>厂家直销</td><td>未公开</td><td>需确认</td><td>有(ROS+SDK)</td><td>需确认</td></tr>
+          <tr><td class="spec-label">蓝衡</td><td>厂家直销</td><td>未公开</td><td>需确认</td><td>有配套软件</td><td>需确认</td></tr>
+        </tbody>
+      </table>
+      <p class="note" style="margin-top: 12px;">注：以上信息基于公开渠道整理，具体售后条款以合同约定为准。建议在供应商评估阶段要求提供书面SLA承诺。</p>
+    </div>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="card" style="background: rgba(231,76,60,0.06); border: 1px solid rgba(231,76,60,0.2);">
+    <div class="card-title" style="color: var(--orange);">数据来源与免责声明</div>
+    <p style="font-size: 13px; color: var(--text-dim);">本报告数据来源于各品牌官方技术文档/数据手册、行业研究机构报告（豆丁网行业分析报告、Dataintelo市场报告）、上市公司年报、1688/仪器网等B2B平台公开报价及行业媒体公开报道。</p>
+    <p style="font-size: 13px; color: var(--text-dim); margin-top: 8px;">标注<span class="est">*推测值</span>的参数为基于公开信息推断，建议结合实际询价和技术交流核实。价格区间为2026年中国市场终端成交价估算，实际成交价因配置、数量、项目背景不同会有差异。</p>
+    <p style="font-size: 12px; color: var(--text-dim); margin-top: 8px;">引用来源：Teledyne Marine官网 [$TRAE_REF](https://www.teledynemarine.com/products/product-line/sonar/forward-looking-imaging-sonars) | Tritech Gemini 720iks数据手册 [$TRAE_REF](https://www.tritech.co.uk/files/Datasheets/Gemini720iks-datasheet-_0742-SOM-00001-10.pdf) | Blueprint Subsea Oculus M系列数据手册 [$TRAE_REF](https://assets.ctfassets.net/kzewhs8e6cvu/4rLxKV7IcrM0Dj5kDh5UJu/ad85d03557b1c1bd8b78b083b9df0c6b/Oculus_M-Series_Datasheet_EN.pdf) | 海底鹰FLS800D技术规格书 [$TRAE_REF](https://hdyocean-website.oss-cn-hangzhou.aliyuncs.com/pdfs/product/FLS800D.pdf) | 博海深衡官网 [$TRAE_REF](https://www.deep-balance.com/default.aspx) | 海卓同创官网 [$TRAE_REF](http://hydro-tech.cn/h-col-245.html) | 瀚界科技官网 [$TRAE_REF](https://hanjie-tech.cn/about-us) | 瀚界C750D产品页 [$TRAE_REF](https://hanjie-tech.cn/product/c750d) | 瀚界软件支持页 [$TRAE_REF](https://www.hanjie-tech.cn/support) | 大连理工大学设备共享平台 [$TRAE_REF](https://gxpt.dlut.edu.cn/genee/equipment/2534) | 蓝衡科技官网 [$TRAE_REF](https://www.sapphireview.cn/) | 蓝衡SV1203产品页 [$TRAE_REF](https://www.sapphireview.cn/sys-pd/14.html) | 全球前视声呐市场报告 [$TRAE_REF](https://dataintelo.com/report/forward-looking-sonar-market) | 中国成像声纳行业报告 [$TRAE_REF](https://www.docin.com/touch_new/preview_new.do?id=4967662968) | 1688平台报价 [$TRAE_REF](https://detail.1688.com/offer/811940191890.html)</p>
+  </div>
+
+  <div class="report-footer">
+    <p>前视声呐市场调研报告 · 2026年度 V2.0 · 市场策划部</p>
+    <p style="margin-top: 6px;">本报告仅供内部决策参考，不对外发布</p>
+  </div>
+
+</div>
+
+</body></html>
